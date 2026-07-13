@@ -1,0 +1,152 @@
+{
+    "data": [
+        {
+            "id": "claude-haiku-4-5-20251001",
+            "created": null,
+            "object": null,
+            "owned_by": null,
+            "type": "model",
+            "display_name": "Claude Haiku 4.5"
+        },
+        {
+            "id": "claude-opus-4-6",
+            "created": null,
+            "object": null,
+            "owned_by": null,
+            "type": "model",
+            "display_name": "Claude Opus 4.6"
+        },
+        {
+            "id": "claude-opus-4-7",
+            "created": null,
+            "object": null,
+            "owned_by": null,
+            "type": "model",
+            "display_name": "Claude Opus 4.7"
+        },
+        {
+            "id": "claude-opus-4-8",
+            "created": null,
+            "object": null,
+            "owned_by": null,
+            "type": "model",
+            "display_name": "Claude Opus 4.8"
+        },
+        {
+            "id": "claude-sonnet-4-6",
+            "created": null,
+            "object": null,
+            "owned_by": null,
+            "type": "model",
+            "display_name": "Claude Sonnet 4.6"
+        },
+        {
+            "id": "claude-sonnet-5",
+            "created": null,
+            "object": null,
+            "owned_by": null,
+            "type": "model",
+            "display_name": "Claude Sonnet 5"
+        },
+        {
+            "id": "deepseek-v4-flash",
+            "created": null,
+            "object": null,
+            "owned_by": null,
+            "type": "model",
+            "display_name": "Deepseek V4 Flash"
+        },
+        {
+            "id": "deepseek-v4-pro",
+            "created": null,
+            "object": null,
+            "owned_by": null,
+            "type": "model",
+            "display_name": "Deepseek V4 Pro"
+        },
+        {
+            "id": "glm-5",
+            "created": null,
+            "object": null,
+            "owned_by": null,
+            "type": "model",
+            "display_name": "Glm 5"
+        },
+        {
+            "id": "glm-5.1",
+            "created": null,
+            "object": null,
+            "owned_by": null,
+            "type": "model",
+            "display_name": "Glm 5.1"
+        },
+        {
+            "id": "glm-5.2",
+            "created": null,
+            "object": null,
+            "owned_by": null,
+            "type": "model",
+            "display_name": "Glm 5.2"
+        },
+        {
+            "id": "gpt-5.3-codex",
+            "created": null,
+            "object": null,
+            "owned_by": null,
+            "type": "model",
+            "display_name": "Gpt 5.3 Codex"
+        },
+        {
+            "id": "gpt-5.5",
+            "created": null,
+            "object": null,
+            "owned_by": null,
+            "type": "model",
+            "display_name": "Gpt 5.5"
+        },
+        {
+            "id": "gpt-5.6-luna",
+            "created": null,
+            "object": null,
+            "owned_by": null,
+            "type": "model",
+            "display_name": "Gpt 5.6 Luna"
+        },
+        {
+            "id": "gpt-5.6-sol",
+            "created": null,
+            "object": null,
+            "owned_by": null,
+            "type": "model",
+            "display_name": "Gpt 5.6 Sol"
+        },
+        {
+            "id": "gpt-5.6-terra",
+            "created": null,
+            "object": null,
+            "owned_by": null,
+            "type": "model",
+            "display_name": "Gpt 5.6 Terra"
+        },
+        {
+            "id": "qwen3.6-plus",
+            "created": null,
+            "object": null,
+            "owned_by": null,
+            "type": "model",
+            "display_name": "Qwen3.6 Plus"
+        },
+        {
+            "id": "qwen3.7-max",
+            "created": null,
+            "object": null,
+            "owned_by": null,
+            "type": "model",
+            "display_name": "Qwen3.7 Max"
+        }
+    ],
+    "object": null,
+    "has_more": false,
+    "first_id": "claude-haiku-4-5-20251001",
+    "last_id": "qwen3.7-max"
+}

@@ -1,0 +1,50 @@
+{
+    "data": [
+        {
+            "id": "gpt-5.6",
+            "created": 1626777600,
+            "object": "model",
+            "owned_by": "freemodel",
+            "supported_endpoint_types": [
+                "openai"
+            ]
+        },
+        {
+            "id": "gpt-5.5",
+            "created": 1626777600,
+            "object": "model",
+            "owned_by": "freemodel",
+            "supported_endpoint_types": [
+                "openai"
+            ]
+        },
+        {
+            "id": "gpt-5.4",
+            "created": 1626777600,
+            "object": "model",
+            "owned_by": "freemodel",
+            "supported_endpoint_types": [
+                "openai"
+            ]
+        },
+        {
+            "id": "gpt-5.4-mini",
+            "created": 1626777600,
+            "object": "model",
+            "owned_by": "freemodel",
+            "supported_endpoint_types": [
+                "openai"
+            ]
+        },
+        {
+            "id": "gpt-5.3-codex",
+            "created": 1626777600,
+            "object": "model",
+            "owned_by": "freemodel",
+            "supported_endpoint_types": [
+                "openai"
+            ]
+        }
+    ],
+    "object": "list"
+}

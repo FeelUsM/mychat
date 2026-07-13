@@ -1,0 +1,23 @@
+{
+    "data": [
+        {
+            "id": "gpt-oss-120b",
+            "created": 0,
+            "object": "model",
+            "owned_by": "Cerebras"
+        },
+        {
+            "id": "gemma-4-31b",
+            "created": 0,
+            "object": "model",
+            "owned_by": "Cerebras"
+        },
+        {
+            "id": "zai-glm-4.7",
+            "created": 0,
+            "object": "model",
+            "owned_by": "Cerebras"
+        }
+    ],
+    "object": "list"
+}
