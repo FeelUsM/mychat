@@ -1,5 +1,7 @@
 
 secret_keys.json
+trash/*
+.obsidian/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
