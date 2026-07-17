@@ -4,7 +4,10 @@ import re
 def get_provider_by_name(name,model=None):
 	name = name.replace("inferera","aihubmix")
 
-	if name=="openrouter":
+	if name == "omniroute":
+		BASE_URL = "http://localhost:20128/v1"
+		MODEL = "fmd/gpt-5.5"
+	if name == "openrouter":
 		BASE_URL = "https://openrouter.ai/api/v1"
 		MODEL = "nvidia/nemotron-3-ultra-550b-a55b:free"
 	if name == "github":
