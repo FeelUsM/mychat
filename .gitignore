@@ -11,6 +11,7 @@ trash/*
 .obsidian/plugins/acp-chat/node_modules
 .obsidian/plugins/acp-chat/package-lock.json
 .obsidian/plugins/acp-chat/main.js
+.obsidian/plugins/acp-chat/data.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
