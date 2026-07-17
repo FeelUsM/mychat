@@ -1,8 +1,8 @@
 const { Plugin, Notice } = require("obsidian")
 const { parseDocument, extractMessages } = require("./parser.js")
-const { DEFAULT_SETTINGS, getHeadingsConfig, getAgentSpawnConfig } = require("./config.js")
+const { DEFAULT_SETTINGS, getAgentConfig } = require("./config.js")
 const { AcpDialogueSettingTab } = require("./settings.js")
-const { getNoteAcpConfig } = require("./note-config.js")
+const { ensureNoteAcpConfig } = require("./note-config.js")
 
 class AcpDialoguePlugin extends Plugin {
 	async onload() {
@@ -42,24 +42,27 @@ class AcpDialoguePlugin extends Plugin {
 			return
 		}
 
-		const spawnConfig = getAgentSpawnConfig(this.settings)
-		if (!spawnConfig.path) {
+		const agentConfig = getAgentConfig(this.settings)
+		if (!agentConfig.path) {
 			new Notice("Не задан путь к агенту в настройках плагина")
 			return
 		}
 
-		const headingsConfig = getHeadingsConfig(this.settings)
-		const noteConfig = getNoteAcpConfig(this.app, file)
+		// Дописывает в frontmatter заметки недостающие acp-поля (значениями
+		// из DEFAULT_NOTE_CONFIG) и возвращает итоговый эффективный конфиг.
+		const noteConfig = await ensureNoteAcpConfig(this.app, file)
 
 		const text = await this.app.vault.read(file)
-		const blocks = parseDocument(text, headingsConfig)
+		const blocks = parseDocument(text, {
+			assistantHeadings: noteConfig.assistantHeadings,
+			reasoningHeadings: noteConfig.reasoningHeadings,
+		})
 		const messages = extractMessages(blocks, { sendReasoning: noteConfig.sendReasoning })
 
 		console.log("[acp-dialogue] распарсенные блоки:", blocks)
 		console.log("[acp-dialogue] сообщения для агента:", messages)
-		console.log("[acp-dialogue] system prompt:", noteConfig.system)
-		console.log("[acp-dialogue] params:", noteConfig.params)
-		console.log("[acp-dialogue] agent spawn config:", spawnConfig)
+		console.log("[acp-dialogue] note config:", noteConfig)
+		console.log("[acp-dialogue] agent config:", agentConfig)
 
 		new Notice(`Блоков: ${blocks.length}, сообщений для агента: ${messages.length}`)
 	}

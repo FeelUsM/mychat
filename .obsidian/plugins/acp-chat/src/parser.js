@@ -21,10 +21,10 @@ function matchHeading(line) {
 }
 
 function resolveH2Role(text, config) {
-	if (config.assistantHeading.includes(text)) {
+	if (config.assistantHeadings.includes(text)) {
 		return "assistant"
 	}
-	if (config.reasoningHeading.includes(text)) {
+	if (config.reasoningHeadings.includes(text)) {
 		return "reasoning"
 	}
 	return null

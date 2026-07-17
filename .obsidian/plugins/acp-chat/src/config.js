@@ -1,15 +1,12 @@
-// Персистентные настройки плагина (this.plugin.settings) и функции,
-// превращающие их в конфиги, которые понимают parser.js и будущий acp/process.js.
-// Вынесено отдельно от settings.js, чтобы не тянуть require("obsidian")
-// туда, где нужна только чистая логика (и чтобы это было тестируемо в node).
+// Персистентные настройки плагина (this.plugin.settings, глобальные для всех
+// заметок) - только про то, как запускать процесс агента. Все настройки логики
+// диалога (заголовки, system prompt, params) теперь живут per-заметочно
+// в frontmatter, см. note-config.js.
 
 const DEFAULT_SETTINGS = {
 	agentPath: "",
 	agentArgs: "",
 	agentEnv: "",
-	userHeading: "Пользователь",
-	assistantHeading: "Ассистент, Assistant",
-	reasoningHeading: "Размышления ассистента",
 }
 
 function parseLines(text) {
@@ -17,13 +14,6 @@ function parseLines(text) {
 		.split("\n")
 		.map((line) => line.trim())
 		.filter((line) => line !== "")
-}
-
-function parseCsv(text) {
-	return text
-		.split(",")
-		.map((item) => item.trim())
-		.filter((item) => item !== "")
 }
 
 function parseEnv(text) {
@@ -44,17 +34,8 @@ function parseEnv(text) {
 	return env
 }
 
-// Настройки заголовков -> конфиг для parser.js.
-function getHeadingsConfig(settings) {
-	return {
-		userHeading: settings.userHeading.trim() || "Пользователь",
-		assistantHeading: parseCsv(settings.assistantHeading),
-		reasoningHeading: parseCsv(settings.reasoningHeading),
-	}
-}
-
 // Настройки агента -> параметры для child_process.spawn (Этап 4).
-function getAgentSpawnConfig(settings) {
+function getAgentConfig(settings) {
 	return {
 		path: settings.agentPath.trim(),
 		args: parseLines(settings.agentArgs),
@@ -65,8 +46,6 @@ function getAgentSpawnConfig(settings) {
 module.exports = {
 	DEFAULT_SETTINGS,
 	parseLines,
-	parseCsv,
 	parseEnv,
-	getHeadingsConfig,
-	getAgentSpawnConfig,
+	getAgentConfig,
 }

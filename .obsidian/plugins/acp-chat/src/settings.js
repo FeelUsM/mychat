@@ -41,38 +41,6 @@ class AcpDialogueSettingTab extends PluginSettingTab {
 					await this.plugin.saveSettings()
 				})
 			)
-
-		containerEl.createEl("h3", { text: "Заголовки в документе" })
-
-		new Setting(containerEl)
-			.setName("Заголовок пользователя (H1)")
-			.setDesc("Текст заголовка 1-го уровня не проверяется по смыслу, но выводится как приглашение")
-			.addText((text) =>
-				text.setValue(this.plugin.settings.userHeading).onChange(async (value) => {
-					this.plugin.settings.userHeading = value
-					await this.plugin.saveSettings()
-				})
-			)
-
-		new Setting(containerEl)
-			.setName("Заголовки ассистента (H2)")
-			.setDesc("Через запятую, регистр важен")
-			.addText((text) =>
-				text.setValue(this.plugin.settings.assistantHeading).onChange(async (value) => {
-					this.plugin.settings.assistantHeading = value
-					await this.plugin.saveSettings()
-				})
-			)
-
-		new Setting(containerEl)
-			.setName("Заголовки размышлений (H2)")
-			.setDesc("Через запятую, регистр важен")
-			.addText((text) =>
-				text.setValue(this.plugin.settings.reasoningHeading).onChange(async (value) => {
-					this.plugin.settings.reasoningHeading = value
-					await this.plugin.saveSettings()
-				})
-			)
 	}
 }
 
