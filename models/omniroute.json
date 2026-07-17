@@ -1,0 +1,3557 @@
+{
+    "data": [
+        {
+            "id": "auto/best-coding",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/best-coding",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/best-reasoning",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/best-reasoning",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/best-fast",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/best-fast",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/best-vision",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/best-vision",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/best-chat",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/best-chat",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/best-coding-fast",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/best-coding-fast",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/pro-coding",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/pro-coding",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/pro-reasoning",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/pro-reasoning",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/pro-vision",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/pro-vision",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/pro-chat",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/pro-chat",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/pro-fast",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/pro-fast",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/coding",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/coding",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/fast",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/fast",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/chat",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/chat",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/cheap",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/cheap",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/offline",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/offline",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/smart",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/smart",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/claude-opus",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/claude-opus",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/claude-sonnet",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/claude-sonnet",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/best-free",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/best-free",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/coding:fast",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/coding:fast",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/coding:cheap",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/coding:cheap",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/coding:free",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/coding:free",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/coding:pro",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/coding:pro",
+            "parent": null,
+            "context_length": 400000,
+            "max_input_tokens": 400000,
+            "max_output_tokens": 128000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/coding:reliable",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/coding:reliable",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/reasoning",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/reasoning",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/reasoning:pro",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/reasoning:pro",
+            "parent": null,
+            "context_length": 400000,
+            "max_input_tokens": 400000,
+            "max_output_tokens": 128000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/vision",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/vision",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/multimodal",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/multimodal",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/glm",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/glm",
+            "parent": null,
+            "context_length": 128000,
+            "max_input_tokens": 128000,
+            "max_output_tokens": 8192,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/minimax",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/minimax",
+            "parent": null,
+            "context_length": 1048576,
+            "max_input_tokens": 1048576,
+            "max_output_tokens": 512000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/mimo",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/mimo",
+            "parent": null,
+            "context_length": 1000000,
+            "max_input_tokens": 1000000,
+            "max_output_tokens": 128000,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/zai",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/zai",
+            "parent": null,
+            "context_length": 128000,
+            "max_input_tokens": 128000,
+            "max_output_tokens": 8192,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/gemma",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/gemma",
+            "parent": null,
+            "context_length": 128000,
+            "max_input_tokens": 128000,
+            "max_output_tokens": 8192,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/llama",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/llama",
+            "parent": null,
+            "context_length": 128000,
+            "max_input_tokens": 128000,
+            "max_output_tokens": 8192,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "auto/gemini",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "combo",
+            "permission": [],
+            "root": "auto/gemini",
+            "parent": null,
+            "context_length": 1000000,
+            "max_input_tokens": 1000000,
+            "max_output_tokens": 65535,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "temperature": true
+            }
+        },
+        {
+            "id": "kc/openrouter/free",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "openrouter/free",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "kc/Free Models Router",
+            "context_length": 128000
+        },
+        {
+            "id": "kilocode/openrouter/free",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "openrouter/free",
+            "parent": "kc/openrouter/free",
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "kilocode/Free Models Router",
+            "context_length": 128000
+        },
+        {
+            "id": "kc/qwen/qwen3.6-plus",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "qwen/qwen3.6-plus",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "kc/Qwen3.6 Plus",
+            "context_length": 128000
+        },
+        {
+            "id": "kilocode/qwen/qwen3.6-plus",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "qwen/qwen3.6-plus",
+            "parent": "kc/qwen/qwen3.6-plus",
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "kilocode/Qwen3.6 Plus",
+            "context_length": 128000
+        },
+        {
+            "id": "kc/qwen/qwen3.5-397b-a17b",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "qwen/qwen3.5-397b-a17b",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "kc/Qwen3.5 397B A17B",
+            "context_length": 128000
+        },
+        {
+            "id": "kilocode/qwen/qwen3.5-397b-a17b",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "qwen/qwen3.5-397b-a17b",
+            "parent": "kc/qwen/qwen3.5-397b-a17b",
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "kilocode/Qwen3.5 397B A17B",
+            "context_length": 128000
+        },
+        {
+            "id": "kc/openai/gpt-5.5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "openai/gpt-5.5",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "kc/GPT-5.5",
+            "context_length": 400000
+        },
+        {
+            "id": "kilocode/openai/gpt-5.5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "openai/gpt-5.5",
+            "parent": "kc/openai/gpt-5.5",
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "kilocode/GPT-5.5",
+            "context_length": 400000
+        },
+        {
+            "id": "kc/openai/gpt-5.4-mini",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "openai/gpt-5.4-mini",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "kc/GPT-5.4 Mini",
+            "context_length": 400000
+        },
+        {
+            "id": "kilocode/openai/gpt-5.4-mini",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "openai/gpt-5.4-mini",
+            "parent": "kc/openai/gpt-5.4-mini",
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "kilocode/GPT-5.4 Mini",
+            "context_length": 400000
+        },
+        {
+            "id": "kc/anthropic/claude-opus-4.7",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "anthropic/claude-opus-4.7",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "name": "kc/Claude Opus 4.7",
+            "context_length": 200000
+        },
+        {
+            "id": "kilocode/anthropic/claude-opus-4.7",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "anthropic/claude-opus-4.7",
+            "parent": "kc/anthropic/claude-opus-4.7",
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "name": "kilocode/Claude Opus 4.7",
+            "context_length": 200000
+        },
+        {
+            "id": "kc/anthropic/claude-sonnet-4.6",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "anthropic/claude-sonnet-4.6",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "name": "kc/Claude Sonnet 4.6",
+            "context_length": 200000
+        },
+        {
+            "id": "kilocode/anthropic/claude-sonnet-4.6",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "anthropic/claude-sonnet-4.6",
+            "parent": "kc/anthropic/claude-sonnet-4.6",
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "name": "kilocode/Claude Sonnet 4.6",
+            "context_length": 200000
+        },
+        {
+            "id": "kc/anthropic/claude-haiku-4.5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "anthropic/claude-haiku-4.5",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "name": "kc/Claude Haiku 4.5",
+            "context_length": 200000
+        },
+        {
+            "id": "kilocode/anthropic/claude-haiku-4.5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "anthropic/claude-haiku-4.5",
+            "parent": "kc/anthropic/claude-haiku-4.5",
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "name": "kilocode/Claude Haiku 4.5",
+            "context_length": 200000
+        },
+        {
+            "id": "kc/google/gemini-3.1-pro-preview",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "google/gemini-3.1-pro-preview",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "name": "kc/Gemini 3.1 Pro",
+            "context_length": 1000000
+        },
+        {
+            "id": "kilocode/google/gemini-3.1-pro-preview",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "google/gemini-3.1-pro-preview",
+            "parent": "kc/google/gemini-3.1-pro-preview",
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "name": "kilocode/Gemini 3.1 Pro",
+            "context_length": 1000000
+        },
+        {
+            "id": "kc/google/gemini-3-flash-preview",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "google/gemini-3-flash-preview",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "name": "kc/Gemini 3 Flash",
+            "context_length": 1000000
+        },
+        {
+            "id": "kilocode/google/gemini-3-flash-preview",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "google/gemini-3-flash-preview",
+            "parent": "kc/google/gemini-3-flash-preview",
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "name": "kilocode/Gemini 3 Flash",
+            "context_length": 1000000
+        },
+        {
+            "id": "kc/google/gemini-3.1-flash-lite",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "google/gemini-3.1-flash-lite",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "name": "kc/Gemini 3.1 Flash Lite",
+            "context_length": 1000000
+        },
+        {
+            "id": "kilocode/google/gemini-3.1-flash-lite",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "google/gemini-3.1-flash-lite",
+            "parent": "kc/google/gemini-3.1-flash-lite",
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "name": "kilocode/Gemini 3.1 Flash Lite",
+            "context_length": 1000000
+        },
+        {
+            "id": "kc/deepseek/deepseek-v4-pro",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "deepseek/deepseek-v4-pro",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "name": "kc/DeepSeek V4 Pro",
+            "context_length": 128000
+        },
+        {
+            "id": "kilocode/deepseek/deepseek-v4-pro",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "deepseek/deepseek-v4-pro",
+            "parent": "kc/deepseek/deepseek-v4-pro",
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "name": "kilocode/DeepSeek V4 Pro",
+            "context_length": 128000
+        },
+        {
+            "id": "kc/deepseek/deepseek-v4-flash",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "deepseek/deepseek-v4-flash",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "name": "kc/DeepSeek V4 Flash",
+            "context_length": 128000
+        },
+        {
+            "id": "kilocode/deepseek/deepseek-v4-flash",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "deepseek/deepseek-v4-flash",
+            "parent": "kc/deepseek/deepseek-v4-flash",
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "name": "kilocode/DeepSeek V4 Flash",
+            "context_length": 128000
+        },
+        {
+            "id": "kc/moonshotai/kimi-k2.6",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "moonshotai/kimi-k2.6",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "kc/Kimi K2.6",
+            "context_length": 128000
+        },
+        {
+            "id": "kilocode/moonshotai/kimi-k2.6",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "moonshotai/kimi-k2.6",
+            "parent": "kc/moonshotai/kimi-k2.6",
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "kilocode/Kimi K2.6",
+            "context_length": 128000
+        },
+        {
+            "id": "pepper/pepper-1",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "chipotle",
+            "permission": [],
+            "root": "pepper-1",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "Pepper (Chipotle AI \ud83c\udf2f)",
+            "context_length": 128000
+        },
+        {
+            "id": "ddgw/gpt-4o-mini",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "duckduckgo-web",
+            "permission": [],
+            "root": "gpt-4o-mini",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": false,
+                "thinking": false,
+                "supportsThinking": false
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 128000,
+            "max_output_tokens": 16384,
+            "max_input_tokens": 128000,
+            "name": "GPT-4o Mini"
+        },
+        {
+            "id": "ddgw/gpt-5-mini",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "duckduckgo-web",
+            "permission": [],
+            "root": "gpt-5-mini",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "GPT-5 Mini",
+            "context_length": 400000
+        },
+        {
+            "id": "ddgw/claude-3-5-haiku-20241022",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "duckduckgo-web",
+            "permission": [],
+            "root": "claude-3-5-haiku-20241022",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "name": "Claude 3.5 Haiku",
+            "context_length": 200000
+        },
+        {
+            "id": "ddgw/llama-4-scout",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "duckduckgo-web",
+            "permission": [],
+            "root": "llama-4-scout",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "Llama 4 Scout",
+            "context_length": 128000
+        },
+        {
+            "id": "ddgw/mistral-small-2501",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "duckduckgo-web",
+            "permission": [],
+            "root": "mistral-small-2501",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "Mistral Small",
+            "context_length": 128000
+        },
+        {
+            "id": "ddgw/o3-mini",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "duckduckgo-web",
+            "permission": [],
+            "root": "o3-mini",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "O3 Mini",
+            "context_length": 400000
+        },
+        {
+            "id": "aug/claude-sonnet-4.6",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "auggie",
+            "permission": [],
+            "root": "claude-sonnet-4.6",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 200000,
+            "max_output_tokens": 64000,
+            "max_input_tokens": 200000,
+            "name": "aug/Claude Sonnet 4.6"
+        },
+        {
+            "id": "aug/claude-sonnet-4.6-thinking",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "auggie",
+            "permission": [],
+            "root": "claude-sonnet-4.6-thinking",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 200000,
+            "max_input_tokens": 200000,
+            "name": "Claude Sonnet 4.6 Thinking"
+        },
+        {
+            "id": "aug/claude-opus-4.6",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "auggie",
+            "permission": [],
+            "root": "claude-opus-4.6",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 200000,
+            "max_output_tokens": 128000,
+            "max_input_tokens": 200000,
+            "name": "Claude Opus 4.6"
+        },
+        {
+            "id": "aug/claude-haiku-4.5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "auggie",
+            "permission": [],
+            "root": "claude-haiku-4.5",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 200000,
+            "max_output_tokens": 64000,
+            "max_input_tokens": 200000,
+            "name": "aug/Claude Haiku 4.5"
+        },
+        {
+            "id": "aug/gemini-3.1-pro",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "auggie",
+            "permission": [],
+            "root": "gemini-3.1-pro",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 1000000,
+            "max_output_tokens": 65535,
+            "max_input_tokens": 1000000,
+            "name": "aug/Gemini 3.1 Pro"
+        },
+        {
+            "id": "aug/gemini-3.0-flash",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "auggie",
+            "permission": [],
+            "root": "gemini-3.0-flash",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 1000000,
+            "max_input_tokens": 1000000,
+            "name": "aug/Gemini 3 Flash"
+        },
+        {
+            "id": "aug/gpt-5.5-high",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "auggie",
+            "permission": [],
+            "root": "gpt-5.5-high",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 200000,
+            "max_output_tokens": 128000,
+            "max_input_tokens": 200000,
+            "name": "GPT-5.5 High"
+        },
+        {
+            "id": "aug/gpt-5.5-medium",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "auggie",
+            "permission": [],
+            "root": "gpt-5.5-medium",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 200000,
+            "max_output_tokens": 128000,
+            "max_input_tokens": 200000,
+            "name": "GPT-5.5 Medium"
+        },
+        {
+            "id": "aug/gpt-5.4-high",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "auggie",
+            "permission": [],
+            "root": "gpt-5.4-high",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 200000,
+            "max_output_tokens": 131072,
+            "max_input_tokens": 200000,
+            "name": "GPT-5.4 High"
+        },
+        {
+            "id": "aug/gpt-5.4-medium",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "auggie",
+            "permission": [],
+            "root": "gpt-5.4-medium",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 200000,
+            "max_output_tokens": 131072,
+            "max_input_tokens": 200000,
+            "name": "GPT-5.4 Medium"
+        },
+        {
+            "id": "aug/kimi-k2.6",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "auggie",
+            "permission": [],
+            "root": "kimi-k2.6",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 131000,
+            "max_output_tokens": 262144,
+            "max_input_tokens": 131000,
+            "name": "aug/Kimi K2.6"
+        },
+        {
+            "id": "aug/prism",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "auggie",
+            "permission": [],
+            "root": "prism",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "context_length": 200000,
+            "max_input_tokens": 200000,
+            "name": "Augment Prism"
+        },
+        {
+            "id": "oc/big-pickle",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "opencode",
+            "permission": [],
+            "root": "big-pickle",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "name": "Big Pickle",
+            "context_length": 200000
+        },
+        {
+            "id": "oc/deepseek-v4-flash-free",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "opencode",
+            "permission": [],
+            "root": "deepseek-v4-flash-free",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "context_length": 1000000,
+            "max_output_tokens": 384000,
+            "max_input_tokens": 1000000,
+            "name": "DeepSeek V4 Flash Free"
+        },
+        {
+            "id": "oc/minimax-m3-free",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "opencode",
+            "permission": [],
+            "root": "minimax-m3-free",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 1048576,
+            "max_output_tokens": 512000,
+            "max_input_tokens": 1048576,
+            "name": "minimax-m3-free"
+        },
+        {
+            "id": "oc/minimax-m2.5-free",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "opencode",
+            "permission": [],
+            "root": "minimax-m2.5-free",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "context_length": 204800,
+            "max_output_tokens": 131072,
+            "max_input_tokens": 204800,
+            "name": "MiniMax M2.5 Free"
+        },
+        {
+            "id": "oc/ling-2.6-1t-free",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "opencode",
+            "permission": [],
+            "root": "ling-2.6-1t-free",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "ling-2.6-1t-free",
+            "context_length": 200000
+        },
+        {
+            "id": "oc/trinity-large-preview-free",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "opencode",
+            "permission": [],
+            "root": "trinity-large-preview-free",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "trinity-large-preview-free",
+            "context_length": 200000
+        },
+        {
+            "id": "oc/nemotron-3-super-free",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "opencode",
+            "permission": [],
+            "root": "nemotron-3-super-free",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "context_length": 1000000,
+            "max_input_tokens": 1000000,
+            "name": "Nemotron 3 Super Free"
+        },
+        {
+            "id": "oc/qwen3.6-plus-free",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "opencode",
+            "permission": [],
+            "root": "qwen3.6-plus-free",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 200000,
+            "max_output_tokens": 65536,
+            "max_input_tokens": 200000,
+            "name": "Qwen3.6 Plus Free"
+        },
+        {
+            "id": "tllm/GPT_5_4",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "theoldllm",
+            "permission": [],
+            "root": "GPT_5_4",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "context_length": 400000,
+            "max_input_tokens": 400000,
+            "name": "GPT-5.4 (The Old LLM \ud83c\udd93)"
+        },
+        {
+            "id": "tllm/GPT_5_3",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "theoldllm",
+            "permission": [],
+            "root": "GPT_5_3",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "context_length": 400000,
+            "max_input_tokens": 400000,
+            "name": "GPT-5.3 (The Old LLM \ud83c\udd93)"
+        },
+        {
+            "id": "tllm/GPT_5_2",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "theoldllm",
+            "permission": [],
+            "root": "GPT_5_2",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "context_length": 400000,
+            "max_input_tokens": 400000,
+            "name": "GPT-5.2 (The Old LLM \ud83c\udd93)"
+        },
+        {
+            "id": "tllm/GPT_5_1",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "theoldllm",
+            "permission": [],
+            "root": "GPT_5_1",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "context_length": 400000,
+            "max_input_tokens": 400000,
+            "name": "GPT-5.1 (The Old LLM \ud83c\udd93)"
+        },
+        {
+            "id": "tllm/GPT_5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "theoldllm",
+            "permission": [],
+            "root": "GPT_5",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "context_length": 400000,
+            "max_input_tokens": 400000,
+            "name": "GPT-5 (The Old LLM \ud83c\udd93)"
+        },
+        {
+            "id": "tllm/GPT_o4_mini",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "theoldllm",
+            "permission": [],
+            "root": "GPT_o4_mini",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "o4-mini (The Old LLM \ud83c\udd93)",
+            "context_length": 200000
+        },
+        {
+            "id": "tllm/GPT_o3_mini",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "theoldllm",
+            "permission": [],
+            "root": "GPT_o3_mini",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "o3-mini (The Old LLM \ud83c\udd93)",
+            "context_length": 200000
+        },
+        {
+            "id": "tllm/gemini_3_pro",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "theoldllm",
+            "permission": [],
+            "root": "gemini_3_pro",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "context_length": 1000000,
+            "max_input_tokens": 1000000,
+            "name": "Gemini 3 Pro (The Old LLM \ud83c\udd93)"
+        },
+        {
+            "id": "tllm/gemini_2_5_pro",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "theoldllm",
+            "permission": [],
+            "root": "gemini_2_5_pro",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "context_length": 1000000,
+            "max_input_tokens": 1000000,
+            "name": "Gemini 2.5 Pro (The Old LLM \ud83c\udd93)"
+        },
+        {
+            "id": "tllm/gemini_2_0_flash",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "theoldllm",
+            "permission": [],
+            "root": "gemini_2_0_flash",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "context_length": 1000000,
+            "max_input_tokens": 1000000,
+            "name": "Gemini 2.0 Flash (The Old LLM \ud83c\udd93)"
+        },
+        {
+            "id": "tllm/gemini_1_5_flash",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "theoldllm",
+            "permission": [],
+            "root": "gemini_1_5_flash",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "context_length": 1000000,
+            "max_input_tokens": 1000000,
+            "name": "Gemini 1.5 Flash (The Old LLM \ud83c\udd93)"
+        },
+        {
+            "id": "tllm/CLAUDE_4_6_OPUS",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "theoldllm",
+            "permission": [],
+            "root": "CLAUDE_4_6_OPUS",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "context_length": 200000,
+            "max_input_tokens": 200000,
+            "name": "Claude 4.6 Opus (The Old LLM \ud83c\udd93)"
+        },
+        {
+            "id": "tllm/CLAUDE_4_6_SONNET",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "theoldllm",
+            "permission": [],
+            "root": "CLAUDE_4_6_SONNET",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "context_length": 200000,
+            "max_input_tokens": 200000,
+            "name": "Claude 4.6 Sonnet (The Old LLM \ud83c\udd93)"
+        },
+        {
+            "id": "tllm/CLAUDE_4_5_HAIKU",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "theoldllm",
+            "permission": [],
+            "root": "CLAUDE_4_5_HAIKU",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "context_length": 200000,
+            "max_input_tokens": 200000,
+            "name": "Claude 4.5 Haiku (The Old LLM \ud83c\udd93)"
+        },
+        {
+            "id": "tllm/openrouter_gpt_4_o",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "theoldllm",
+            "permission": [],
+            "root": "openrouter_gpt_4_o",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "GPT-4o (The Old LLM \ud83c\udd93)",
+            "context_length": 200000
+        },
+        {
+            "id": "tllm/openrouter_gpt_4_o_mini",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "theoldllm",
+            "permission": [],
+            "root": "openrouter_gpt_4_o_mini",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "GPT-4o mini (The Old LLM \ud83c\udd93)",
+            "context_length": 200000
+        },
+        {
+            "id": "tllm/openrouter_grok_4",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "theoldllm",
+            "permission": [],
+            "root": "openrouter_grok_4",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "Grok 4 (The Old LLM \ud83c\udd93)",
+            "context_length": 200000
+        },
+        {
+            "id": "tllm/together_deepseek_v3",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "theoldllm",
+            "permission": [],
+            "root": "together_deepseek_v3",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "DeepSeek V3 (The Old LLM \ud83c\udd93)",
+            "context_length": 200000
+        },
+        {
+            "id": "tllm/openrouter_deepseek_r1",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "theoldllm",
+            "permission": [],
+            "root": "openrouter_deepseek_r1",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "DeepSeek R1 (The Old LLM \ud83c\udd93)",
+            "context_length": 200000
+        },
+        {
+            "id": "tllm/sonar-pro",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "theoldllm",
+            "permission": [],
+            "root": "sonar-pro",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "Sonar Pro (The Old LLM \ud83c\udd93)",
+            "context_length": 200000
+        },
+        {
+            "id": "tllm/GPT_4o",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "theoldllm",
+            "permission": [],
+            "root": "GPT_4o",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "GPT-4o (The Old LLM \ud83c\udd93)",
+            "context_length": 200000
+        },
+        {
+            "id": "tllm/claude_opus_4",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "theoldllm",
+            "permission": [],
+            "root": "claude_opus_4",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "context_length": 200000,
+            "max_input_tokens": 200000,
+            "name": "Claude Opus 4 (The Old LLM \ud83c\udd93)"
+        },
+        {
+            "id": "tllm/claude_sonnet_4",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "theoldllm",
+            "permission": [],
+            "root": "claude_sonnet_4",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "context_length": 200000,
+            "max_input_tokens": 200000,
+            "name": "Claude Sonnet 4 (The Old LLM \ud83c\udd93)"
+        },
+        {
+            "id": "tllm/claude_haiku_3_5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "theoldllm",
+            "permission": [],
+            "root": "claude_haiku_3_5",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "context_length": 200000,
+            "max_input_tokens": 200000,
+            "name": "Claude Haiku 3.5 (The Old LLM \ud83c\udd93)"
+        },
+        {
+            "id": "tllm/deepseek_v4",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "theoldllm",
+            "permission": [],
+            "root": "deepseek_v4",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "context_length": 200000,
+            "max_input_tokens": 200000,
+            "name": "DeepSeek V4 (The Old LLM \ud83c\udd93)"
+        },
+        {
+            "id": "tllm/gemini_3_flash",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "theoldllm",
+            "permission": [],
+            "root": "gemini_3_flash",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "context_length": 1000000,
+            "max_input_tokens": 1000000,
+            "name": "Gemini 3 Flash (The Old LLM \ud83c\udd93)"
+        },
+        {
+            "id": "veo-free/veo",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "veoaifree-web",
+            "permission": [],
+            "root": "veo",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "veo-free/VEO 3.1",
+            "context_length": 128000
+        },
+        {
+            "id": "veo-free/seedance",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "veoaifree-web",
+            "permission": [],
+            "root": "seedance",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "veo-free/Seedance",
+            "context_length": 128000
+        },
+        {
+            "id": "kr/claude-sonnet-5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kiro",
+            "permission": [],
+            "root": "claude-sonnet-5",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 1000000,
+            "max_output_tokens": 128000,
+            "max_input_tokens": 1000000,
+            "name": "kr/Claude Sonnet 5"
+        },
+        {
+            "id": "kiro/claude-sonnet-5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kiro",
+            "permission": [],
+            "root": "claude-sonnet-5",
+            "parent": "kr/claude-sonnet-5",
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 1000000,
+            "max_output_tokens": 128000,
+            "max_input_tokens": 1000000,
+            "name": "kiro/Claude Sonnet 5"
+        },
+        {
+            "id": "kr/claude-sonnet-4.5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kiro",
+            "permission": [],
+            "root": "claude-sonnet-4.5",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 200000,
+            "max_output_tokens": 64000,
+            "max_input_tokens": 200000,
+            "name": "kr/Claude Sonnet 4.5"
+        },
+        {
+            "id": "kiro/claude-sonnet-4.5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kiro",
+            "permission": [],
+            "root": "claude-sonnet-4.5",
+            "parent": "kr/claude-sonnet-4.5",
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 200000,
+            "max_output_tokens": 64000,
+            "max_input_tokens": 200000,
+            "name": "kiro/Claude Sonnet 4.5"
+        },
+        {
+            "id": "kr/claude-haiku-4.5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kiro",
+            "permission": [],
+            "root": "claude-haiku-4.5",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 200000,
+            "max_output_tokens": 64000,
+            "max_input_tokens": 200000,
+            "name": "kr/Claude Haiku 4.5"
+        },
+        {
+            "id": "kiro/claude-haiku-4.5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kiro",
+            "permission": [],
+            "root": "claude-haiku-4.5",
+            "parent": "kr/claude-haiku-4.5",
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 200000,
+            "max_output_tokens": 64000,
+            "max_input_tokens": 200000,
+            "name": "kiro/Claude Haiku 4.5"
+        },
+        {
+            "id": "kr/deepseek-3.2",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kiro",
+            "permission": [],
+            "root": "deepseek-3.2",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "kr/DeepSeek V3.2",
+            "context_length": 200000
+        },
+        {
+            "id": "kiro/deepseek-3.2",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kiro",
+            "permission": [],
+            "root": "deepseek-3.2",
+            "parent": "kr/deepseek-3.2",
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "kiro/DeepSeek V3.2",
+            "context_length": 200000
+        },
+        {
+            "id": "kr/minimax-m2.5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kiro",
+            "permission": [],
+            "root": "minimax-m2.5",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "context_length": 200000,
+            "max_output_tokens": 131072,
+            "max_input_tokens": 200000,
+            "name": "kr/MiniMax M2.5"
+        },
+        {
+            "id": "kiro/minimax-m2.5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kiro",
+            "permission": [],
+            "root": "minimax-m2.5",
+            "parent": "kr/minimax-m2.5",
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "context_length": 200000,
+            "max_output_tokens": 131072,
+            "max_input_tokens": 200000,
+            "name": "kiro/MiniMax M2.5"
+        },
+        {
+            "id": "kr/minimax-m2.1",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kiro",
+            "permission": [],
+            "root": "minimax-m2.1",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "kr/MiniMax M2.1",
+            "context_length": 200000
+        },
+        {
+            "id": "kiro/minimax-m2.1",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kiro",
+            "permission": [],
+            "root": "minimax-m2.1",
+            "parent": "kr/minimax-m2.1",
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "kiro/MiniMax M2.1",
+            "context_length": 200000
+        },
+        {
+            "id": "kr/glm-5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kiro",
+            "permission": [],
+            "root": "glm-5",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "context_length": 200000,
+            "max_output_tokens": 128000,
+            "max_input_tokens": 200000,
+            "name": "kr/GLM-5"
+        },
+        {
+            "id": "kiro/glm-5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kiro",
+            "permission": [],
+            "root": "glm-5",
+            "parent": "kr/glm-5",
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "context_length": 200000,
+            "max_output_tokens": 128000,
+            "max_input_tokens": 200000,
+            "name": "kiro/GLM-5"
+        },
+        {
+            "id": "kr/qwen3-coder-next",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kiro",
+            "permission": [],
+            "root": "qwen3-coder-next",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "kr/Qwen3 Coder Next",
+            "context_length": 200000
+        },
+        {
+            "id": "kiro/qwen3-coder-next",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kiro",
+            "permission": [],
+            "root": "qwen3-coder-next",
+            "parent": "kr/qwen3-coder-next",
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "kiro/Qwen3 Coder Next",
+            "context_length": 200000
+        },
+        {
+            "id": "mcode/mimo-auto",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "mimocode",
+            "permission": [],
+            "root": "mimo-auto",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "context_length": 1000000,
+            "max_output_tokens": 128000,
+            "max_input_tokens": 1000000,
+            "name": "MiMo Auto"
+        },
+        {
+            "id": "fmd/gpt-5.6-luna",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "freemodel-dev",
+            "permission": [],
+            "root": "gpt-5.6-luna",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 1050000,
+            "max_output_tokens": 128000,
+            "max_input_tokens": 1050000,
+            "name": "fmd/gpt-5.6-luna"
+        },
+        {
+            "id": "freemodel-dev/gpt-5.6-luna",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "freemodel-dev",
+            "permission": [],
+            "root": "gpt-5.6-luna",
+            "parent": "fmd/gpt-5.6-luna",
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 1050000,
+            "max_output_tokens": 128000,
+            "max_input_tokens": 1050000,
+            "name": "freemodel-dev/gpt-5.6-luna"
+        },
+        {
+            "id": "fmd/gpt-5.6-sol",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "freemodel-dev",
+            "permission": [],
+            "root": "gpt-5.6-sol",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 1050000,
+            "max_output_tokens": 128000,
+            "max_input_tokens": 1050000,
+            "name": "fmd/gpt-5.6-sol"
+        },
+        {
+            "id": "freemodel-dev/gpt-5.6-sol",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "freemodel-dev",
+            "permission": [],
+            "root": "gpt-5.6-sol",
+            "parent": "fmd/gpt-5.6-sol",
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 1050000,
+            "max_output_tokens": 128000,
+            "max_input_tokens": 1050000,
+            "name": "freemodel-dev/gpt-5.6-sol"
+        },
+        {
+            "id": "fmd/gpt-5.6-terra",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "freemodel-dev",
+            "permission": [],
+            "root": "gpt-5.6-terra",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 1050000,
+            "max_output_tokens": 128000,
+            "max_input_tokens": 1050000,
+            "name": "fmd/gpt-5.6-terra"
+        },
+        {
+            "id": "freemodel-dev/gpt-5.6-terra",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "freemodel-dev",
+            "permission": [],
+            "root": "gpt-5.6-terra",
+            "parent": "fmd/gpt-5.6-terra",
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 1050000,
+            "max_output_tokens": 128000,
+            "max_input_tokens": 1050000,
+            "name": "freemodel-dev/gpt-5.6-terra"
+        },
+        {
+            "id": "fmd/gpt-5.5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "freemodel-dev",
+            "permission": [],
+            "root": "gpt-5.5",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 400000,
+            "max_output_tokens": 128000,
+            "max_input_tokens": 400000,
+            "name": "fmd/GPT-5.5"
+        },
+        {
+            "id": "freemodel-dev/gpt-5.5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "freemodel-dev",
+            "permission": [],
+            "root": "gpt-5.5",
+            "parent": "fmd/gpt-5.5",
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 400000,
+            "max_output_tokens": 128000,
+            "max_input_tokens": 400000,
+            "name": "freemodel-dev/GPT-5.5"
+        },
+        {
+            "id": "fmd/gpt-5.4",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "freemodel-dev",
+            "permission": [],
+            "root": "gpt-5.4",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 400000,
+            "max_output_tokens": 131072,
+            "max_input_tokens": 400000,
+            "name": "fmd/GPT-5.4"
+        },
+        {
+            "id": "freemodel-dev/gpt-5.4",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "freemodel-dev",
+            "permission": [],
+            "root": "gpt-5.4",
+            "parent": "fmd/gpt-5.4",
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 400000,
+            "max_output_tokens": 131072,
+            "max_input_tokens": 400000,
+            "name": "freemodel-dev/GPT-5.4"
+        },
+        {
+            "id": "fmd/gpt-5.4-mini",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "freemodel-dev",
+            "permission": [],
+            "root": "gpt-5.4-mini",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 409600,
+            "max_output_tokens": 131072,
+            "max_input_tokens": 409600,
+            "name": "fmd/GPT-5.4 Mini"
+        },
+        {
+            "id": "freemodel-dev/gpt-5.4-mini",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "freemodel-dev",
+            "permission": [],
+            "root": "gpt-5.4-mini",
+            "parent": "fmd/gpt-5.4-mini",
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true,
+                "thinking": true,
+                "supportsThinking": true,
+                "effort_tiers": [
+                    "none",
+                    "low",
+                    "medium",
+                    "high",
+                    "xhigh"
+                ]
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "context_length": 409600,
+            "max_output_tokens": 131072,
+            "max_input_tokens": 409600,
+            "name": "freemodel-dev/GPT-5.4 Mini"
+        },
+        {
+            "id": "fmd/gpt-5.3-codex",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "freemodel-dev",
+            "permission": [],
+            "root": "gpt-5.3-codex",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "fmd/GPT-5.3 Codex",
+            "context_length": 128000
+        },
+        {
+            "id": "freemodel-dev/gpt-5.3-codex",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "freemodel-dev",
+            "permission": [],
+            "root": "gpt-5.3-codex",
+            "parent": "fmd/gpt-5.3-codex",
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "freemodel-dev/GPT-5.3 Codex",
+            "context_length": 128000
+        },
+        {
+            "id": "veoaifree-web/veo",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "veoaifree-web",
+            "type": "video",
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "veoaifree-web/VEO 3.1"
+        },
+        {
+            "id": "veo-free/veo",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "veoaifree-web",
+            "type": "video",
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "veo-free/VEO 3.1"
+        },
+        {
+            "id": "veoaifree-web/seedance",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "veoaifree-web",
+            "type": "video",
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "veoaifree-web/Seedance"
+        },
+        {
+            "id": "veo-free/seedance",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "veoaifree-web",
+            "type": "video",
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "veo-free/Seedance"
+        },
+        {
+            "id": "no-think/kc/anthropic/claude-opus-4.7",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "no-think/kc/anthropic/claude-opus-4.7",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "name": "no-think/kc/anthropic/claude-opus-4.7",
+            "context_length": 200000
+        },
+        {
+            "id": "no-think/kilocode/anthropic/claude-opus-4.7",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "no-think/kilocode/anthropic/claude-opus-4.7",
+            "parent": "kc/anthropic/claude-opus-4.7",
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "name": "no-think/kilocode/anthropic/claude-opus-4.7",
+            "context_length": 200000
+        },
+        {
+            "id": "no-think/kc/anthropic/claude-sonnet-4.6",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "no-think/kc/anthropic/claude-sonnet-4.6",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "name": "no-think/kc/anthropic/claude-sonnet-4.6",
+            "context_length": 200000
+        },
+        {
+            "id": "no-think/kilocode/anthropic/claude-sonnet-4.6",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "no-think/kilocode/anthropic/claude-sonnet-4.6",
+            "parent": "kc/anthropic/claude-sonnet-4.6",
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "name": "no-think/kilocode/anthropic/claude-sonnet-4.6",
+            "context_length": 200000
+        },
+        {
+            "id": "no-think/kc/anthropic/claude-haiku-4.5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "no-think/kc/anthropic/claude-haiku-4.5",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "name": "no-think/kc/anthropic/claude-haiku-4.5",
+            "context_length": 200000
+        },
+        {
+            "id": "no-think/kilocode/anthropic/claude-haiku-4.5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kilocode",
+            "permission": [],
+            "root": "no-think/kilocode/anthropic/claude-haiku-4.5",
+            "parent": "kc/anthropic/claude-haiku-4.5",
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "name": "no-think/kilocode/anthropic/claude-haiku-4.5",
+            "context_length": 200000
+        },
+        {
+            "id": "no-think/aug/claude-sonnet-4.6",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "auggie",
+            "permission": [],
+            "root": "no-think/aug/claude-sonnet-4.6",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "name": "no-think/aug/claude-sonnet-4.6",
+            "context_length": 200000
+        },
+        {
+            "id": "no-think/aug/claude-opus-4.6",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "auggie",
+            "permission": [],
+            "root": "no-think/aug/claude-opus-4.6",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "name": "no-think/aug/claude-opus-4.6",
+            "context_length": 200000
+        },
+        {
+            "id": "no-think/aug/claude-haiku-4.5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "auggie",
+            "permission": [],
+            "root": "no-think/aug/claude-haiku-4.5",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "name": "no-think/aug/claude-haiku-4.5",
+            "context_length": 200000
+        },
+        {
+            "id": "no-think/kr/claude-sonnet-5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kiro",
+            "permission": [],
+            "root": "no-think/kr/claude-sonnet-5",
+            "parent": null,
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "no-think/kr/claude-sonnet-5",
+            "context_length": 200000
+        },
+        {
+            "id": "no-think/kiro/claude-sonnet-5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kiro",
+            "permission": [],
+            "root": "no-think/kiro/claude-sonnet-5",
+            "parent": "kr/claude-sonnet-5",
+            "capabilities": {
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "name": "no-think/kiro/claude-sonnet-5",
+            "context_length": 200000
+        },
+        {
+            "id": "no-think/kr/claude-sonnet-4.5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kiro",
+            "permission": [],
+            "root": "no-think/kr/claude-sonnet-4.5",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "name": "no-think/kr/claude-sonnet-4.5",
+            "context_length": 200000
+        },
+        {
+            "id": "no-think/kiro/claude-sonnet-4.5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kiro",
+            "permission": [],
+            "root": "no-think/kiro/claude-sonnet-4.5",
+            "parent": "kr/claude-sonnet-4.5",
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "name": "no-think/kiro/claude-sonnet-4.5",
+            "context_length": 200000
+        },
+        {
+            "id": "no-think/kr/claude-haiku-4.5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kiro",
+            "permission": [],
+            "root": "no-think/kr/claude-haiku-4.5",
+            "parent": null,
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "name": "no-think/kr/claude-haiku-4.5",
+            "context_length": 200000
+        },
+        {
+            "id": "no-think/kiro/claude-haiku-4.5",
+            "created": 1784236063,
+            "object": "model",
+            "owned_by": "kiro",
+            "permission": [],
+            "root": "no-think/kiro/claude-haiku-4.5",
+            "parent": "kr/claude-haiku-4.5",
+            "capabilities": {
+                "vision": true,
+                "tool_calling": true,
+                "reasoning": true
+            },
+            "input_modalities": [
+                "text",
+                "image"
+            ],
+            "output_modalities": [
+                "text"
+            ],
+            "name": "no-think/kiro/claude-haiku-4.5",
+            "context_length": 200000
+        }
+    ],
+    "object": "list"
+}

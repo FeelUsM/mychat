@@ -7,13 +7,13 @@
             "owned_by": "Cerebras"
         },
         {
-            "id": "gemma-4-31b",
+            "id": "zai-glm-4.7",
             "created": 0,
             "object": "model",
             "owned_by": "Cerebras"
         },
         {
-            "id": "zai-glm-4.7",
+            "id": "gemma-4-31b",
             "created": 0,
             "object": "model",
             "owned_by": "Cerebras"
