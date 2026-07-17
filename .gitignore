@@ -1,7 +1,16 @@
 
 secret_keys.json
 trash/*
+
+# nodejs
 .obsidian/*
+!.obsidian/plugins/
+.obsidian/plugins/*
+!.obsidian/plugins/acp-chat/
+!.obsidian/plugins/acp-chat/*
+.obsidian/plugins/acp-chat/node_modules
+.obsidian/plugins/acp-chat/package-lock.json
+.obsidian/plugins/acp-chat/main.js
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -1,0 +1,16 @@
+{
+  "name": "acp-chat",
+  "version": "0.1.0",
+  "description": "Obsidian plugin: dialogue-in-a-note over Agent Client Protocol",
+  "main": "main.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "esbuild src/main.js --bundle --outfile=main.js --format=cjs --external:obsidian"
+  },
+  "dependencies": {
+    "@agentclientprotocol/sdk": "^1.2.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.1"
+  }
+}
