@@ -1,86 +1,140 @@
 // Все настройки логики диалога для конкретной заметки читаются из её
-// frontmatter, пространство имён "acp":
+// frontmatter. Пространство имён выражено префиксами (а не вложенным
+// объектом), потому что frontmatter-редактор Obsidian не поддерживает
+// произвольные object/dict-поля - только числа, строки, списки строк,
+// date/datetime:
 //
 // ---
-// acp:
-//   system: |
-//     Ты полезны ассистент. Отвечай кратко
-//   sendReasoning: false
-//   userHeading: "Пользователь"
-//   assistantHeadings: ["Ассистент", "Assistant"]
-//   reasoningHeadings: ["Размышления ассистента"]
-//   params:
-//     temperature: 0.2
+// a_system: Ты полезны ассистент. Отвечай кратко
+// a_sendReasoning: false
+// a_userHeading: Пользователь
+// a_assistantHeadings:
+//   - Ассистент
+//   - Assistant
+// a_reasoningHeadings:
+//   - Размышления ассистента
+// ap_temperature: 0.2
+// ap_seed: 67
 // ---
 //
-// Namespace выбран специально, чтобы не конфликтовать с полями других плагинов.
-// Если acp целиком или отдельные поля внутри него отсутствуют во frontmatter
-// заметки - недостающее дописывается в файл значениями из DEFAULT_NOTE_CONFIG.
+// Поля "ap_*" - открытый список: каждое такое поле идёт как есть (без
+// префикса) в params, которые уходят в параметры вызова LLM (temperature,
+// seed, top_p, ...). Если полей "ap_*" во frontmatter вообще нет - пишутся
+// дефолтные (сейчас только ap_temperature).
+//
+// Если конкретное "a_*"-поле отсутствует - дописывается в файл значением
+// по умолчанию. Если поле присутствует, но не проходит проверку типа -
+// в файле оно не трогается (не затираем то, что написал пользователь),
+// но в работу идёт значение по умолчанию, и пользователю показывается
+// Notice с тем, какой тип ожидался и какое значение сейчас использовано.
 
-const DEFAULT_NOTE_CONFIG = {
-	system: "Ты полезны ассистент. Отвечай кратко",
-	sendReasoning: false,
-	userHeading: "Пользователь",
-	assistantHeadings: ["Ассистент", "Assistant"],
-	reasoningHeadings: ["Размышления ассистента"],
-	params: {
-		temperature: 0.2,
-	},
+const { Notice } = require("obsidian")
+
+const PARAMS_PREFIX = "ap_"
+
+const DEFAULT_PARAMS = {
+	temperature: 0.2,
 }
 
+// type: "string" | "boolean" | "string[]"
+const FIELDS = [
+	{ key: "a_system", field: "system", type: "string", default: "Ты полезны ассистент. Отвечай кратко" },
+	{ key: "a_sendReasoning", field: "sendReasoning", type: "boolean", default: false },
+	{ key: "a_userHeading", field: "userHeading", type: "string", default: "Пользователь" },
+	{ key: "a_assistantHeadings", field: "assistantHeadings", type: "string[]", default: ["Ассистент", "Assistant"] },
+	{ key: "a_reasoningHeadings", field: "reasoningHeadings", type: "string[]", default: ["Размышления ассистента"] },
+]
+
+const DEFAULT_NOTE_CONFIG = FIELDS.reduce(
+	(acc, f) => {
+		acc[f.field] = f.default
+		return acc
+	},
+	{ params: DEFAULT_PARAMS }
+)
+
 function cloneDefault(value) {
+	// structuredClone тоже подошёл бы, но JSON.parse(JSON.stringify(...))
+	// работает везде одинаково и для наших данных (строки/bool/массивы строк/
+	// плоский объект params) этого достаточно.
 	return JSON.parse(JSON.stringify(value))
 }
 
-function normalizeField(acp, key) {
-	const value = acp[key]
-	const fallback = DEFAULT_NOTE_CONFIG[key]
-
-	if (key === "assistantHeadings" || key === "reasoningHeadings") {
-		if (Array.isArray(value) && value.length > 0 && value.every((item) => typeof item === "string")) {
-			return value
-		}
-		return cloneDefault(fallback)
+function typeLabel(type) {
+	if (type === "string") {
+		return "строкой"
 	}
-
-	if (key === "sendReasoning") {
-		return typeof value === "boolean" ? value : fallback
+	if (type === "boolean") {
+		return "true или false"
 	}
-
-	if (key === "userHeading" || key === "system") {
-		return typeof value === "string" ? value : fallback
+	if (type === "string[]") {
+		return "непустым списком строк"
 	}
-
-	if (key === "params") {
-		return value && typeof value === "object" && !Array.isArray(value) ? value : cloneDefault(fallback)
-	}
-
-	return value
+	return type
 }
 
-// Дополняет frontmatter заметки недостающими acp-полями (реально записывает
-// в файл, через штатный Obsidian API - чтобы не портить остальной frontmatter
-// и не пересобирать YAML руками) и возвращает итоговый эффективный конфиг.
+function isValid(type, value) {
+	if (type === "string") {
+		return typeof value === "string"
+	}
+	if (type === "boolean") {
+		return typeof value === "boolean"
+	}
+	if (type === "string[]") {
+		return Array.isArray(value) && value.length > 0 && value.every((item) => typeof item === "string")
+	}
+	return true
+}
+
+// Дополняет frontmatter заметки недостающими a_*/ap_*-полями (реально
+// записывает в файл через штатный Obsidian API, не трогая остальной
+// frontmatter) и возвращает итоговый эффективный конфиг. Если какое-то
+// поле присутствует, но не того типа - показывает Notice и подставляет
+// в резолвленный конфиг значение по умолчанию, саму заметку при этом
+// не трогает.
 async function ensureNoteAcpConfig(app, file) {
 	let resolved = null
+	const invalidFieldMessages = []
 
 	await app.fileManager.processFrontMatter(file, (frontmatter) => {
-		if (!frontmatter.acp || typeof frontmatter.acp !== "object") {
-			frontmatter.acp = {}
-		}
-		const acp = frontmatter.acp
+		resolved = {}
 
-		for (const key of Object.keys(DEFAULT_NOTE_CONFIG)) {
-			if (!(key in acp)) {
-				acp[key] = cloneDefault(DEFAULT_NOTE_CONFIG[key])
+		for (const f of FIELDS) {
+			if (!(f.key in frontmatter)) {
+				frontmatter[f.key] = cloneDefault(f.default)
+				resolved[f.field] = cloneDefault(f.default)
+				continue
+			}
+
+			const value = frontmatter[f.key]
+			if (isValid(f.type, value)) {
+				resolved[f.field] = value
+			} else {
+				invalidFieldMessages.push(
+					`Поле "${f.key}" должно быть ${typeLabel(f.type)}, а сейчас там ${JSON.stringify(value)} - используется значение по умолчанию ${JSON.stringify(f.default)}`
+				)
+				resolved[f.field] = cloneDefault(f.default)
 			}
 		}
 
-		resolved = {}
-		for (const key of Object.keys(DEFAULT_NOTE_CONFIG)) {
-			resolved[key] = normalizeField(acp, key)
+		const paramKeys = Object.keys(frontmatter).filter((key) => key.startsWith(PARAMS_PREFIX))
+		if (paramKeys.length === 0) {
+			for (const [name, value] of Object.entries(DEFAULT_PARAMS)) {
+				frontmatter[PARAMS_PREFIX + name] = value
+			}
+			resolved.params = cloneDefault(DEFAULT_PARAMS)
+		} else {
+			const params = {}
+			for (const key of paramKeys) {
+				params[key.slice(PARAMS_PREFIX.length)] = frontmatter[key]
+			}
+			resolved.params = params
 		}
 	})
+
+	for (const message of invalidFieldMessages) {
+		new Notice(`[acp-dialogue] ${message}`)
+	}
 
 	return resolved
 }
