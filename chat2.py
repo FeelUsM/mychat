@@ -32,6 +32,7 @@ provider_name = "omniroute"
 #provider_name = "groq"
 #provider_name = "cerebras"
 BASE_URL, API_KEY, MODEL = get_provider_by_name(provider_name)
+MODEL = "agentrouter/claude-opus-4-6"
 
 # Инициализация клиента
 client = OpenAI(
