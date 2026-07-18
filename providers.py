@@ -1,5 +1,6 @@
 import json
 import re
+import os
 
 def get_provider_by_name(name,model=None):
 	name = name.replace("inferera","aihubmix")
@@ -38,7 +39,7 @@ def get_provider_by_name(name,model=None):
 
 	if model is not None: MODEL = model
 
-	with open('secret_keys.json', 'r') as jsonfile:
+	with open(os.path.dirname(os.path.abspath(__file__))+os.sep+'secret_keys.json', 'r') as jsonfile:
 		# Load the content into a Python object
 		api_keys = json.load(jsonfile)['providers']
 		API_KEY = api_keys[name]

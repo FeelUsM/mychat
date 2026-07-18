@@ -5,7 +5,7 @@
   "main": "main.js",
   "license": "MIT",
   "scripts": {
-    "build": "esbuild src/main.js --bundle --outfile=main.js --format=cjs --external:obsidian"
+    "build": "esbuild src/main.js --bundle --outfile=main.js --format=cjs --external:obsidian --platform=node"
   },
   "dependencies": {
     "@agentclientprotocol/sdk": "^1.2.1"

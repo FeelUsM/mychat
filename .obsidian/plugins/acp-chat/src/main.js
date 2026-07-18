@@ -3,12 +3,19 @@ const { parseDocument, extractMessages } = require("./parser.js")
 const { DEFAULT_SETTINGS, getAgentConfig } = require("./config.js")
 const { AcpDialogueSettingTab } = require("./settings.js")
 const { ensureNoteAcpConfig } = require("./note-config.js")
+const { AgentProcess } = require("./acp/process.js")
+const { AcpClient } = require("./acp/client.js")
+const { buildOpenAiMessages } = require("./messages.js")
+const { buildAppendix } = require("./writer.js")
+//const { showPermissionModal } = require("./ui/modal-permission.js")
 
 class AcpDialoguePlugin extends Plugin {
 	async onload() {
 		await this.loadSettings()
-
 		this.addSettingTab(new AcpDialogueSettingTab(this.app, this))
+
+		this.agentProcess = null
+		this.acpClient = null
 
 		this.addRibbonIcon("brain-circuit", "Complete", () => {
 			this.handleComplete()
@@ -24,7 +31,9 @@ class AcpDialoguePlugin extends Plugin {
 	}
 
 	onunload() {
-		// Этап 4: здесь будем убивать долгоживущий процесс агента.
+		if (this.agentProcess) {
+			this.agentProcess.stop()
+		}
 	}
 
 	async loadSettings() {
@@ -33,6 +42,38 @@ class AcpDialoguePlugin extends Plugin {
 
 	async saveSettings() {
 		await this.saveData(this.settings)
+	}
+
+	// Держит процесс агента запущенным всё время работы Obsidian: стартует
+	// лениво при первом Complete, дальше переиспользуется; если процесс упал -
+	// AgentProcess.isRunning() вернёт false и следующий start() пересоздаст его
+	// (заодно пересоздаём AcpClient, потому что старое соединение привязано
+	// к stdin/stdout уже мёртвого процесса).
+	async ensureAgentReady(agentConfig) {
+		if (!this.agentProcess) {
+			this.agentProcess = new AgentProcess(agentConfig, {
+				onExit: () => {
+					new Notice("Процесс агента неожиданно завершился")
+				},
+			})
+		}
+
+		const wasRunning = this.agentProcess.isRunning()
+		const child = this.agentProcess.start()
+
+		if (!wasRunning || !this.acpClient) {
+			this.acpClient = new AcpClient({
+//				requestPermission: (params) => showPermissionModal(this.app, params),
+				onSessionUpdate: (params) => {
+					// Пока просто логируем - живую запись в файл по мере
+					// стриминга добавим отдельным этапом.
+					console.log("[acp-dialogue] session/update:", params)
+				},
+			})
+			this.acpClient.connect(child)
+		}
+
+		await this.acpClient.ensureInitialized()
 	}
 
 	async handleComplete() {
@@ -48,8 +89,6 @@ class AcpDialoguePlugin extends Plugin {
 			return
 		}
 
-		// Дописывает в frontmatter заметки недостающие acp-поля (значениями
-		// из DEFAULT_NOTE_CONFIG) и возвращает итоговый эффективный конфиг.
 		const noteConfig = await ensureNoteAcpConfig(this.app, file)
 
 		const text = await this.app.vault.read(file)
@@ -57,14 +96,43 @@ class AcpDialoguePlugin extends Plugin {
 			assistantHeadings: noteConfig.assistantHeadings,
 			reasoningHeadings: noteConfig.reasoningHeadings,
 		})
-		const messages = extractMessages(blocks, { sendReasoning: noteConfig.sendReasoning })
+		const extracted = extractMessages(blocks, { sendReasoning: noteConfig.sendReasoning })
 
-		console.log("[acp-dialogue] распарсенные блоки:", blocks)
+		// Небольшая защита от случайного повторного нажатия Complete без
+		// нового вопроса: если после отбрасывания пустого приглашения
+		// последний блок всё равно не пользовательский - отправлять нечего.
+		if (extracted.length === 0 || extracted[extracted.length - 1].role !== "user") {
+			new Notice("Нет нового вопроса пользователя для отправки")
+			return
+		}
+
+		const messages = buildOpenAiMessages(extracted, noteConfig)
+
+		try {
+			await this.ensureAgentReady(agentConfig)
+		} catch (err) {
+			new Notice(`Не удалось запустить агента: ${err.message}`)
+			return
+		}
+
+		new Notice("Отправляю запрос агенту…")
+		console.log("[acp-dialogue] параметры для агента:", noteConfig.params)
 		console.log("[acp-dialogue] сообщения для агента:", messages)
-		console.log("[acp-dialogue] note config:", noteConfig)
-		console.log("[acp-dialogue] agent config:", agentConfig)
 
-		new Notice(`Блоков: ${blocks.length}, сообщений для агента: ${messages.length}`)
+		let result
+		try {
+			result = await this.acpClient.resetAndPrompt(file.path, messages, noteConfig.params)
+		} catch (err) {
+			console.error("[acp-dialogue] ошибка запроса к агенту:", err)
+			new Notice(`Ошибка агента: ${err.message}`)
+			return
+		}
+
+		console.log("[acp-dialogue] сообщения от агента:", result)
+//		const appendix = buildAppendix(result, noteConfig)
+//		await this.app.vault.append(file, appendix)
+
+		new Notice("Готово")
 	}
 }
 

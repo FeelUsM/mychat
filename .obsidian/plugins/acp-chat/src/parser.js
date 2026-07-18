@@ -1,24 +1,8 @@
 // Разбор markdown-документа заметки в список блоков диалога.
-// Никакого markdown-парсера (remark и т.п.) намеренно не используется -
-// достаточно построчного сканера, который отслеживает только:
-//   - заголовки уровня 1 и 2 вне fenced code block;
-//   - границы fenced code block (учитывая вложенные блоки разной длины/символа).
+// Использует общий построчный сканер (markdown-scan.js), сам не содержит
+// логики fenced-блоков.
 
-function matchFenceMarker(line) {
-	const m = line.match(/^(\s*)(`{3,}|~{3,})(.*)$/)
-	if (!m) {
-		return null
-	}
-	return { indent: m[1], char: m[2][0], len: m[2].length, rest: m[3] }
-}
-
-function matchHeading(line) {
-	const m = line.match(/^(#{1,6})\s+(.*)$/)
-	if (!m) {
-		return null
-	}
-	return { level: m[1].length, text: m[2].trim() }
-}
+const { scanLines } = require("./markdown-scan.js")
 
 function resolveH2Role(text, config) {
 	if (config.assistantHeadings.includes(text)) {
@@ -33,9 +17,7 @@ function resolveH2Role(text, config) {
 // Возвращает список блоков вида { role, rawHeading, content }.
 // role: "user" | "assistant" | "reasoning" | null (null - неизвестный H2, игнорируется дальше).
 function parseDocument(text, config) {
-	const lines = text.split("\n")
 	const blocks = []
-	let fence = null
 	let current = null
 	const preambleLines = []
 
@@ -54,49 +36,29 @@ function parseDocument(text, config) {
 		current = { role, rawHeading, lines: [] }
 	}
 
-	for (const line of lines) {
-		const f = matchFenceMarker(line)
-
-		if (f) {
-			if (!fence) {
-				// Открываем новый fenced-блок (даже если это на самом деле "закрытие"
-				// более широкого блока - при fence === null мы всегда внутри текста,
-				// поэтому любой маркер здесь - открытие).
-				fence = { char: f.char, len: f.len }
-			} else if (f.char === fence.char && f.len >= fence.len && f.rest.trim() === "") {
-				// Закрывающий маркер: тот же символ, длина не короче открывающего,
-				// после маркера в строке ничего кроме пробелов нет.
-				fence = null
-			}
+	scanLines(text, (line, info) => {
+		if (info.inFence || !info.heading) {
 			pushLine(line)
-			continue
+			return
 		}
 
-		if (fence) {
-			pushLine(line)
-			continue
+		if (info.heading.level === 1) {
+			startBlock("user", info.heading.text)
+			return
 		}
 
-		const heading = matchHeading(line)
-
-		if (heading && heading.level === 1) {
-			startBlock("user", heading.text)
-			continue
-		}
-
-		if (heading && heading.level === 2) {
-			const role = resolveH2Role(heading.text, config)
+		if (info.heading.level === 2) {
+			const role = resolveH2Role(info.heading.text, config)
 			if (!role) {
-				console.warn(`[acp-dialogue] Неизвестный заголовок 2-го уровня "${heading.text}", блок будет проигнорирован`)
+				console.warn(`[acp-dialogue] Неизвестный заголовок 2-го уровня "${info.heading.text}", блок будет проигнорирован`)
 			}
-			startBlock(role, heading.text)
-			continue
+			startBlock(role, info.heading.text)
+			return
 		}
 
-		// Заголовки 3-го уровня и глубже, и вообще любой текст вне заголовков 1/2
-		// уровня - это просто содержимое текущего блока.
+		// Заголовки 3-го уровня и глубже - это просто содержимое текущего блока.
 		pushLine(line)
-	}
+	})
 
 	if (current) {
 		blocks.push(current)
@@ -114,7 +76,7 @@ function parseDocument(text, config) {
 	}))
 }
 
-// Превращает блоки в список сообщений, которые пойдут агенту:
+// Превращает блоки в список сообщений в порядке документа:
 //   - неизвестные (role === null) блоки отбрасываются;
 //   - reasoning-блоки отбрасываются, если config.sendReasoning не включён;
 //   - если последнее сообщение - пустой user-блок, оно не отправляется
