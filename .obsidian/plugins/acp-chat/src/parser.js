@@ -1,8 +1,8 @@
-// Разбор markdown-документа заметки в список блоков диалога.
-// Использует общий построчный сканер (markdown-scan.js), сам не содержит
-// логики fenced-блоков.
+// Разбор markdown-документа заметки в список блоков диалога + сборка
+// OpenAI-style messages[] для отправки агенту. Использует общий построчный
+// сканер (markdown-scan.js), сам не содержит логики fenced-блоков.
 
-const { scanLines } = require("./markdown-scan.js")
+const { scanLines, stripFrontmatter } = require("./markdown-scan.js")
 
 function resolveH2Role(text, config) {
 	if (config.assistantHeadings.includes(text)) {
@@ -14,9 +14,17 @@ function resolveH2Role(text, config) {
 	return null
 }
 
-// Возвращает список блоков вида { role, rawHeading, content }.
-// role: "user" | "assistant" | "reasoning" | null (null - неизвестный H2, игнорируется дальше).
+// Возвращает { system, blocks }.
+//   system - текст перед первым заголовком (H1 или H2), за вычетом YAML
+//     frontmatter в начале файла - используется как system prompt.
+//   blocks - список { role, rawHeading, content }, role: "user" | "assistant"
+//     | "reasoning" | null (null - неизвестный H2, игнорируется дальше).
+// Заголовки 2-го уровня, встретившиеся до первого H1 (user-сообщения),
+// не запрещены - они просто становятся assistant/reasoning блоками без
+// предшествующего user-блока.
 function parseDocument(text, config) {
+	const withoutFrontmatter = stripFrontmatter(text)
+
 	const blocks = []
 	let current = null
 	const preambleLines = []
@@ -36,7 +44,7 @@ function parseDocument(text, config) {
 		current = { role, rawHeading, lines: [] }
 	}
 
-	scanLines(text, (line, info) => {
+	scanLines(withoutFrontmatter, (line, info) => {
 		if (info.inFence || !info.heading) {
 			pushLine(line)
 			return
@@ -64,16 +72,14 @@ function parseDocument(text, config) {
 		blocks.push(current)
 	}
 
-	const preambleText = preambleLines.join("\n").trim()
-	if (preambleText !== "") {
-		console.warn("[acp-dialogue] Текст перед первым заголовком проигнорирован:", preambleText)
+	return {
+		system: preambleLines.join("\n").trim(),
+		blocks: blocks.map((block) => ({
+			role: block.role,
+			rawHeading: block.rawHeading,
+			content: block.lines.join("\n").trim(),
+		})),
 	}
-
-	return blocks.map((block) => ({
-		role: block.role,
-		rawHeading: block.rawHeading,
-		content: block.lines.join("\n").trim(),
-	}))
 }
 
 // Превращает блоки в список сообщений в порядке документа:
@@ -102,4 +108,48 @@ function extractMessages(blocks, config) {
 	return messages
 }
 
-module.exports = { parseDocument, extractMessages }
+// Собирает OpenAI-style messages[] для кастомного метода
+// "_mychat/session/reset_and_prompt" из результата extractMessages() и
+// system prompt (преамбулы документа, см. parseDocument). Reasoning-блок,
+// идущий непосредственно перед assistant-блоком, сворачивается в поле
+// "reasoning" этого же assistant-сообщения (как у некоторых
+// OpenAI-совместимых reasoning-моделей: role: "assistant", content,
+// reasoning). Если reasoning идёт без последующего assistant-блока - он
+// теряется: в норме такого быть не должно, потому что reasoning всегда
+// предшествует ответу ассистента.
+function buildOpenAiMessages(extractedMessages, system) {
+	const messages = []
+
+	if (system && system.trim() !== "") {
+		messages.push({ role: "system", content: system.trim() })
+	}
+
+	let pendingReasoning = null
+
+	for (const item of extractedMessages) {
+		if (item.role === "user") {
+			pendingReasoning = null
+			messages.push({ role: "user", content: item.content })
+			continue
+		}
+
+		if (item.role === "reasoning") {
+			pendingReasoning = item.content
+			continue
+		}
+
+		if (item.role === "assistant") {
+			const message = { role: "assistant", content: item.content }
+			if (pendingReasoning !== null) {
+				message.reasoning = pendingReasoning
+			}
+			pendingReasoning = null
+			messages.push(message)
+			continue
+		}
+	}
+
+	return messages
+}
+
+module.exports = { parseDocument, extractMessages, buildOpenAiMessages }

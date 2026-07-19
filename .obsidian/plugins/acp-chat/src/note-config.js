@@ -5,7 +5,6 @@
 // date/datetime:
 //
 // ---
-// a_system: Ты полезны ассистент. Отвечай кратко
 // a_sendReasoning: false
 // a_userHeading: Пользователь
 // a_assistantHeadings:
@@ -16,6 +15,9 @@
 // ap_temperature: 0.2
 // ap_seed: 67
 // ---
+//
+// System prompt отдельного поля не имеет - см. parser.js: им служит текст
+// перед первым заголовком в самом документе (за вычетом YAML frontmatter).
 //
 // Поля "ap_*" - открытый список: каждое такое поле идёт как есть (без
 // префикса) в params, которые уходят в параметры вызова LLM (temperature,
@@ -30,6 +32,7 @@
 
 const { Notice } = require("obsidian")
 
+const A_PREFIX = "a_"
 const PARAMS_PREFIX = "ap_"
 
 const DEFAULT_PARAMS = {
@@ -38,11 +41,10 @@ const DEFAULT_PARAMS = {
 
 // type: "string" | "boolean" | "string[]"
 const FIELDS = [
-	{ key: "a_system", field: "system", type: "string", default: "Ты полезны ассистент. Отвечай кратко" },
-	{ key: "a_sendReasoning", field: "sendReasoning", type: "boolean", default: false },
-	{ key: "a_userHeading", field: "userHeading", type: "string", default: "Пользователь" },
-	{ key: "a_assistantHeadings", field: "assistantHeadings", type: "string[]", default: ["Ассистент", "Assistant"] },
-	{ key: "a_reasoningHeadings", field: "reasoningHeadings", type: "string[]", default: ["Размышления ассистента"] },
+	{ field: "sendReasoning", type: "boolean", default: false },
+	{ field: "userHeading", type: "string", default: "Пользователь" },
+	{ field: "assistantHeadings", type: "string[]", default: ["Ассистент", "Assistant"] },
+	{ field: "reasoningHeadings", type: "string[]", default: ["Размышления ассистента"] },
 ]
 
 const DEFAULT_NOTE_CONFIG = FIELDS.reduce(
@@ -89,29 +91,30 @@ function isValid(type, value) {
 // Дополняет frontmatter заметки недостающими a_*/ap_*-полями (реально
 // записывает в файл через штатный Obsidian API, не трогая остальной
 // frontmatter) и возвращает итоговый эффективный конфиг. Если какое-то
-// поле присутствует, но не того типа - показывает Notice и подставляет
-// в резолвленный конфиг значение по умолчанию, саму заметку при этом
-// не трогает.
+// поле присутствует, но не того типа - сразу показывает Notice и
+// подставляет в резолвленный конфиг значение по умолчанию; саму заметку
+// при этом не трогает.
 async function ensureNoteAcpConfig(app, file) {
 	let resolved = null
-	const invalidFieldMessages = []
 
 	await app.fileManager.processFrontMatter(file, (frontmatter) => {
 		resolved = {}
 
 		for (const f of FIELDS) {
-			if (!(f.key in frontmatter)) {
-				frontmatter[f.key] = cloneDefault(f.default)
+			const key = A_PREFIX + f.field
+
+			if (!(key in frontmatter)) {
+				frontmatter[key] = cloneDefault(f.default)
 				resolved[f.field] = cloneDefault(f.default)
 				continue
 			}
 
-			const value = frontmatter[f.key]
+			const value = frontmatter[key]
 			if (isValid(f.type, value)) {
 				resolved[f.field] = value
 			} else {
-				invalidFieldMessages.push(
-					`Поле "${f.key}" должно быть ${typeLabel(f.type)}, а сейчас там ${JSON.stringify(value)} - используется значение по умолчанию ${JSON.stringify(f.default)}`
+				new Notice(
+					`[acp-dialogue] Поле "${key}" должно быть ${typeLabel(f.type)}, а сейчас там ${JSON.stringify(value)} - используется значение по умолчанию ${JSON.stringify(f.default)}`
 				)
 				resolved[f.field] = cloneDefault(f.default)
 			}
@@ -131,10 +134,6 @@ async function ensureNoteAcpConfig(app, file) {
 			resolved.params = params
 		}
 	})
-
-	for (const message of invalidFieldMessages) {
-		new Notice(`[acp-dialogue] ${message}`)
-	}
 
 	return resolved
 }

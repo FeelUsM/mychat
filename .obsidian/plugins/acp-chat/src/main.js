@@ -1,12 +1,10 @@
 const { Plugin, Notice } = require("obsidian")
-const { parseDocument, extractMessages } = require("./parser.js")
-const { DEFAULT_SETTINGS, getAgentConfig } = require("./config.js")
-const { AcpDialogueSettingTab } = require("./settings.js")
+const { parseDocument, extractMessages, buildOpenAiMessages } = require("./parser.js")
+const { DEFAULT_SETTINGS, getAgentConfig, AcpDialogueSettingTab } = require("./settings.js")
 const { ensureNoteAcpConfig } = require("./note-config.js")
 const { AgentProcess } = require("./acp/process.js")
 const { AcpClient } = require("./acp/client.js")
-const { buildOpenAiMessages } = require("./messages.js")
-const { buildAppendix } = require("./writer.js")
+const { DialogueStreamWriter } = require("./writer.js")
 //const { showPermissionModal } = require("./ui/modal-permission.js")
 
 class AcpDialoguePlugin extends Plugin {
@@ -63,12 +61,7 @@ class AcpDialoguePlugin extends Plugin {
 
 		if (!wasRunning || !this.acpClient) {
 			this.acpClient = new AcpClient({
-//				requestPermission: (params) => showPermissionModal(this.app, params),
-				onSessionUpdate: (params) => {
-					// Пока просто логируем - живую запись в файл по мере
-					// стриминга добавим отдельным этапом.
-					console.log("[acp-dialogue] session/update:", params)
-				},
+				requestPermission: (params) => showPermissionModal(this.app, params),
 			})
 			this.acpClient.connect(child)
 		}
@@ -92,7 +85,7 @@ class AcpDialoguePlugin extends Plugin {
 		const noteConfig = await ensureNoteAcpConfig(this.app, file)
 
 		const text = await this.app.vault.read(file)
-		const blocks = parseDocument(text, {
+		const { system, blocks } = parseDocument(text, {
 			assistantHeadings: noteConfig.assistantHeadings,
 			reasoningHeadings: noteConfig.reasoningHeadings,
 		})
@@ -106,7 +99,7 @@ class AcpDialoguePlugin extends Plugin {
 			return
 		}
 
-		const messages = buildOpenAiMessages(extracted, noteConfig)
+		const messages = buildOpenAiMessages(extracted, system)
 
 		try {
 			await this.ensureAgentReady(agentConfig)
@@ -115,22 +108,42 @@ class AcpDialoguePlugin extends Plugin {
 			return
 		}
 
-		new Notice("Отправляю запрос агенту…")
-		console.log("[acp-dialogue] параметры для агента:", noteConfig.params)
-		console.log("[acp-dialogue] сообщения для агента:", messages)
+		// Очередь дозаписи в файл: session/update-нотификации могут приходить
+		// быстрее, чем успевает завершиться предыдущий vault.append(), поэтому
+		// каждый следующий append ставится в цепочку через .then(), чтобы
+		// сохранить порядок и не потерять/не перемешать куски текста.
+		let appendChain = Promise.resolve()
+		const queueAppend = (chunk) => {
+			if (!chunk) {
+				return
+			}
+			appendChain = appendChain.then(() => this.app.vault.append(file, chunk))
+		}
 
-		let result
+		const streamWriter = new DialogueStreamWriter(noteConfig)
+
+		new Notice("Отправляю запрос агенту…")
+
 		try {
-			result = await this.acpClient.resetAndPrompt(file.path, messages, noteConfig.params)
+			await this.acpClient.resetAndPrompt(file.path, messages, noteConfig.params, (update) => {
+				queueAppend(streamWriter.handleUpdate(update))
+			})
 		} catch (err) {
 			console.error("[acp-dialogue] ошибка запроса к агенту:", err)
+			queueAppend(streamWriter.finish(false))
+			await appendChain
 			new Notice(`Ошибка агента: ${err.message}`)
 			return
 		}
 
-		console.log("[acp-dialogue] сообщения от агента:", result)
-//		const appendix = buildAppendix(result, noteConfig)
-//		await this.app.vault.append(file, appendix)
+		if (!streamWriter.hasAnyContent()) {
+			console.warn("[acp-dialogue] агент не прислал ни одного текстового чанка")
+			new Notice("Агент не прислал ответ (см. консоль)")
+			return
+		}
+
+		queueAppend(streamWriter.finish(true))
+		await appendChain
 
 		new Notice("Готово")
 	}

@@ -12,6 +12,7 @@ import os
 import traceback
 from pathlib import Path
 from typing import Any
+from copy import copy
 
 from acp import (
 	PROTOCOL_VERSION,
@@ -22,6 +23,7 @@ from acp import (
 	run_agent,
 	text_block,
 	update_agent_message,
+	update_agent_thought,
 )
 from acp.interfaces import Client
 from acp.schema import (
@@ -50,8 +52,8 @@ logging.info("cwd: %s ===", os.getcwd())
 
 # Конфигурация
 from providers import get_provider_by_name
-#provider_name = "openrouter"
-provider_name = "github"
+provider_name = "openrouter"
+#provider_name = "github"
 #provider_name = "naga"
 #provider_name = "freemodel"
 #provider_name = "mistral"
@@ -60,6 +62,8 @@ provider_name = "github"
 #provider_name = "groq"
 #provider_name = "cerebras"
 BASE_URL, API_KEY, MODEL = get_provider_by_name(provider_name)
+logging.info("BASE_URL: %s",BASE_URL)
+logging.info("MODEL: %s",MODEL)
 
 def extract_text(block: Any) -> str:
 	"""Достаёт текст из блока промпта, остальные типы (картинки и т.п.) игнорируем."""
@@ -74,7 +78,12 @@ def isiterable(some_object):
 	except TypeError as te:
 	    return False
 
-
+# для тестирования
+# {"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":1,"clientCapabilities":{}}}
+# {"jsonrpc":"2.0","id":2,"method":"session/new","params":{"cwd":"/tmp","mcpServers":[]}}
+# {"jsonrpc":"2.0","id":3,"method":"session/prompt","params":{"sessionId":"0","prompt":[{"type":"text","text":"Привет! Ответь одним словом."}]}}
+# {"jsonrpc":"2.0","id":4,"method":"session/prompt","params":{"sessionId":"0","prompt":[{"type":"text","text":"А теперь посчитай 2+2"}]}}
+# {"jsonrpc":"2.0","id":5,"method":"_mychat/session/reset_and_prompt","params":{"sessionId":"0","params":{"model":"gpt-4o-mini","temperature":0.2},"messages":[{"role":"system","content":"Отвечай только на английском."},{"role":"user","content":"Как дела?"}]}}
 class OpenAIAgent(Agent):
 	_conn: Client
 
@@ -127,6 +136,15 @@ class OpenAIAgent(Agent):
 		подставляется MODEL по умолчанию.
 		"""
 		create_kwargs.setdefault("model", MODEL)
+		logging.info("_stream_reply: %r", create_kwargs)
+		for mes in messages:
+			tmp = copy(mes)
+			del tmp['role']
+			del tmp['content']
+			if len(tmp)>0:
+				logging.info("<- %r : %r ## %r", mes['role'], mes['content'], tmp)
+			else:
+				logging.info("<- %r : %r", mes['role'], mes['content'])
 		stream = await self._client.chat.completions.create(
 			messages=messages,
 			stream=True,
@@ -139,17 +157,21 @@ class OpenAIAgent(Agent):
 			# чанк с content-filter метаданными и пустым choices — пропускаем его
 			if not chunk.choices:
 				continue
-			delta = chunk.choices[0].delta.content
-			if delta:
+			if delta := chunk.choices[0].delta.content:
 				reply_parts.append(delta)
 				await self._conn.session_update(session_id, update_agent_message(text_block(delta)))
+			elif hasattr(chunk.choices[0].delta,'reasoning') and chunk.choices[0].delta.reasoning:
+				delta = chunk.choices[0].delta.reasoning
+				#reply_parts.append(delta)
+				await self._conn.session_update(session_id, update_agent_thought(text_block(delta)))
+			elif chunk.usage:
+				logging.info("usage: %r",chunk.usage)
+			else:
+				logging.info("chuk: %r",chunk)
  
 		return "".join(reply_parts)
  
-	async def prompt(
-		self,
-		session_id: str,
-		prompt: list[
+	async def prompt(self, session_id: str, prompt: list[
 			TextContentBlock
 			| ImageContentBlock
 			| AudioContentBlock
@@ -232,4 +254,8 @@ async def main() -> None:
 
 
 if __name__ == "__main__":
-	asyncio.run(main())
+	try:
+		asyncio.run(main())
+	except BaseException as e:
+		logging.critical("crash exception: %r \n %r", e, traceback.format_exc(limit=1).splitlines()[-1])
+		raise

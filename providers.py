@@ -13,7 +13,7 @@ def get_provider_by_name(name,model=None):
 		MODEL = "nvidia/nemotron-3-ultra-550b-a55b:free"
 	if name == "github":
 		BASE_URL = "https://models.github.ai/inference"
-		MODEL = "openai/gpt-4.1"
+		MODEL = "deepseek/deepseek-r1"
 	if name == "naga":
 		BASE_URL = "https://api.naga.ac/v1"
 		MODEL = "llama-3.3-70b-instruct:free"

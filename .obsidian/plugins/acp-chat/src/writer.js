@@ -1,81 +1,171 @@
-// Формирует текст, который дописывается в конец заметки после получения
-// ответа от агента: опциональный reasoning-блок, assistant-блок, и новый
-// пустой user-блок-приглашение.
-//
-// Правило сдвига заголовков (зафиксировано в обсуждении):
-//   - если в тексте ответа встречается заголовок 1-го уровня - все заголовки
-//     в этом тексте сдвигаются на +2 (H1 -> H3, H2 -> H4, ...);
-//   - иначе если встречается заголовок 2-го уровня (и нет H1) - сдвиг +1;
-//   - иначе сдвига нет.
-// Сдвиг фиксированный, не зависит от вложенности fenced code block (там
-// заголовки и так не считаются заголовками благодаря общему сканеру).
+// Стриминговая запись ответа агента в заметку. В отличие от разового
+// buildAppendix (который видел весь текст сразу и мог заранее решить сдвиг
+// заголовков), здесь текст приходит чанками произвольного размера - поэтому
+// решение о сдвиге принимается ЛЕНИВО, по первому заголовку, который
+// реально встретится в потоке:
+//   - если первый встреченный заголовок - H1, сдвиг фиксируется как +2;
+//   - если первый встреченный заголовок - H2 (и до него не было H1), +1.
+// Это не на 100% то же самое, что "просканировать весь ответ и сдвинуть
+// по наличию H1": в редком случае, когда в потоке сначала встречается H2,
+// а H1 - только позже, эта версия не сможет задним числом поднять уже
+// написанные строки на +2. Компромисс осознанный ради возможности писать
+// в файл по мере поступления текста.
 
-const { scanLines } = require("./markdown-scan.js")
+const { matchFenceMarker, matchHeading } = require("./markdown-scan.js")
 
-function computeShift(text) {
-	let hasH1 = false
-	let hasH2 = false
+function extractText(content) {
+	if (!content) {
+		return ""
+	}
+	if (typeof content === "string") {
+		return content
+	}
+	if (content.type === "text" && typeof content.text === "string") {
+		return content.text
+	}
+	return ""
+}
 
-	scanLines(text, (line, info) => {
-		if (info.inFence || !info.heading) {
-			return
+// Копит входящие чанки одной секции (reasoning или assistant), отдаёт
+// наружу только полностью собранные строки (последнюю, возможно неполную,
+// строку держит у себя до следующего push()/finish()), попутно отслеживая
+// fenced code block (чтобы не сдвигать "#" внутри него) и решение о сдвиге.
+class StreamingSection {
+	constructor() {
+		this.buffer = ""
+		this.fence = null
+		this.shift = null
+		this.finished = false
+	}
+
+	push(chunkText) {
+		if (this.finished || chunkText === "") {
+			return ""
 		}
-		if (info.heading.level === 1) {
-			hasH1 = true
-		} else if (info.heading.level === 2) {
-			hasH2 = true
+		this.buffer += chunkText
+		const lines = this.buffer.split("\n")
+		this.buffer = lines.pop()
+		if (lines.length === 0) {
+			return ""
 		}
-	})
-
-	if (hasH1) {
-		return 2
-	}
-	if (hasH2) {
-		return 1
-	}
-	return 0
-}
-
-function shiftHeadings(text, shift) {
-	if (shift <= 0) {
-		return text
+		return lines.map((line) => this.processLine(line)).join("\n") + "\n"
 	}
 
-	const outputLines = []
-	scanLines(text, (line, info) => {
-		if (info.inFence || !info.heading) {
-			outputLines.push(line)
-			return
+	// Отдаёт остаток буфера (незавершённую строку, если она есть) и помечает
+	// секцию завершённой - повторные вызовы ничего не делают.
+	finish() {
+		if (this.finished) {
+			return ""
 		}
-		const newLevel = Math.min(info.heading.level + shift, 6)
-		outputLines.push("#".repeat(newLevel) + " " + info.heading.text)
-	})
-
-	return outputLines.join("\n")
-}
-
-function shiftedBlock(text) {
-	const shift = computeShift(text)
-	return shiftHeadings(text, shift)
-}
-
-// result: { content: string, reasoning?: string } - ответ агента.
-// noteConfig: эффективный per-заметочный конфиг (см. note-config.js) - нужны
-// assistantHeadings, reasoningHeadings, userHeading.
-function buildAppendix(result, noteConfig) {
-	const parts = []
-
-	if (result.reasoning && result.reasoning.trim() !== "") {
-		const heading = noteConfig.reasoningHeadings[0]
-		parts.push(`## ${heading}\n\n${shiftedBlock(result.reasoning.trim())}`)
+		this.finished = true
+		const line = this.buffer
+		this.buffer = ""
+		if (line === "") {
+			return ""
+		}
+		return this.processLine(line)
 	}
 
-	const assistantHeading = noteConfig.assistantHeadings[0]
-	parts.push(`## ${assistantHeading}\n\n${shiftedBlock((result.content || "").trim())}`)
-
-	parts.push(`# ${noteConfig.userHeading}\n\n`)
-
-	return "\n\n" + parts.join("\n\n")
+	processLine(line) {
+		const f = matchFenceMarker(line)
+		if (f) {
+			if (!this.fence) {
+				this.fence = { char: f.char, len: f.len }
+			} else if (f.char === this.fence.char && f.len >= this.fence.len && f.rest.trim() === "") {
+				this.fence = null
+			}
+			return line
+		}
+		if (this.fence) {
+			return line
+		}
+		const heading = matchHeading(line)
+		if (!heading) {
+			return line
+		}
+		if (this.shift === null) {
+			this.shift = heading.level === 1 ? 2 : 1
+		}
+		const newLevel = Math.min(heading.level + this.shift, 6)
+		return "#".repeat(newLevel) + " " + heading.text
+	}
 }
 
-module.exports = { buildAppendix, computeShift, shiftHeadings }
+// Связывает две StreamingSection (reasoning + assistant) с заголовками из
+// noteConfig, решает когда какой заголовок дописать в файл, отдаёт наружу
+// только готовые к записи строки текста (сама ничего не пишет в vault -
+// I/O и порядок записи - забота вызывающего кода, см. main.js).
+class DialogueStreamWriter {
+	constructor(noteConfig) {
+		this.noteConfig = noteConfig
+		this.reasoning = new StreamingSection()
+		this.assistant = new StreamingSection()
+		this.reasoningHeadingWritten = false
+		this.assistantHeadingWritten = false
+	}
+
+	// update: содержимое поля "update" из session/update-нотификации ACP,
+	// то есть { sessionUpdate: "agent_thought_chunk" | "agent_message_chunk" | ..., content }.
+	// Возвращает текст, который нужно дописать в файл прямо сейчас (может
+	// быть пустой строкой).
+	handleUpdate(update) {
+		if (!update || typeof update !== "object") {
+			return ""
+		}
+
+		if (update.sessionUpdate === "agent_thought_chunk") {
+			const text = extractText(update.content)
+			if (text === "") {
+				return ""
+			}
+			let out = ""
+			if (!this.reasoningHeadingWritten) {
+				out += `\n## ${this.noteConfig.reasoningHeadings[0]}\n`
+				this.reasoningHeadingWritten = true
+			}
+			out += this.reasoning.push(text)
+			return out
+		}
+
+		if (update.sessionUpdate === "agent_message_chunk") {
+			const text = extractText(update.content)
+			if (text === "") {
+				return ""
+			}
+			let out = ""
+			if (!this.assistantHeadingWritten) {
+				// Если reasoning шёл прямо перед этим - закрываем его хвост
+				// перед тем как начать раздел ассистента.
+				out += this.reasoning.finish()
+				out += `\n## ${this.noteConfig.assistantHeadings[0]}\n`
+				this.assistantHeadingWritten = true
+			}
+			out += this.assistant.push(text)
+			return out
+		}
+
+		// tool_call / tool_call_update / plan / user_message_chunk / usage_update
+		// и прочее - пока игнорируем, см. отдельный будущий этап про отображение
+		// вызовов инструментов.
+		return ""
+	}
+
+	// Вызывается после того, как запрос к агенту завершился (успешно или с
+	// ошибкой) - дописывает хвосты незавершённых строк. Если передан
+	// addPrompt=true - добавляет ещё и новый пустой user-блок-приглашение.
+	finish(addPrompt) {
+		let out = ""
+		out += this.reasoning.finish()
+		out += this.assistant.finish()
+		if (addPrompt) {
+			out += `\n\n# ${this.noteConfig.userHeading}\n\n`
+		}
+		return out
+	}
+
+	hasAnyContent() {
+		return this.reasoningHeadingWritten || this.assistantHeadingWritten
+	}
+}
+
+module.exports = { DialogueStreamWriter, StreamingSection, extractText }

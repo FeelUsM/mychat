@@ -19,6 +19,22 @@ function matchHeading(line) {
 	return { level: m[1].length, text: m[2].trim() }
 }
 
+// Если текст начинается с YAML frontmatter (первая строка "---", далее до
+// следующей "---"/"..." строки-разделителя), возвращает текст без него.
+// Если frontmatter'а нет или он не закрыт - возвращает текст как есть.
+function stripFrontmatter(text) {
+	const lines = text.split("\n")
+	if (lines[0] !== "---") {
+		return text
+	}
+	for (let i = 1; i < lines.length; i++) {
+		if (lines[i] === "---" || lines[i] === "...") {
+			return lines.slice(i + 1).join("\n")
+		}
+	}
+	return text
+}
+
 // Идёт по строкам текста, вызывая callback(line, info) для каждой строки, где
 // info.inFence - было ли это внутри fenced-блока ДО обработки этой строки
 // (то есть сама строка с открывающим/закрывающим маркером получает inFence
@@ -52,4 +68,4 @@ function scanLines(text, callback) {
 	}
 }
 
-module.exports = { matchFenceMarker, matchHeading, scanLines }
+module.exports = { matchFenceMarker, matchHeading, scanLines, stripFrontmatter }

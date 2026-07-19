@@ -1,6 +1,6 @@
 {
-	"id": "acp-dialogue",
-	"name": "ACP Dialogue",
+	"id": "acp-chat",
+	"name": "ACP chat",
 	"version": "0.1.0",
 	"minAppVersion": "1.4.0",
 	"description": "Chat with an ACP agent directly inside a note, using headings as the dialogue structure.",

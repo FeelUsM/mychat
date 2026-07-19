@@ -1,7 +1,7 @@
 {
   "name": "acp-chat",
   "version": "0.1.0",
-  "description": "Obsidian plugin: dialogue-in-a-note over Agent Client Protocol",
+  "description": "Obsidian plugin: chat-in-a-note over Agent Client Protocol",
   "main": "main.js",
   "license": "MIT",
   "scripts": {
