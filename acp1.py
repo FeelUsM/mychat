@@ -142,9 +142,9 @@ class OpenAIAgent(Agent):
 			del tmp['role']
 			del tmp['content']
 			if len(tmp)>0:
-				logging.info("<- %r : %r ## %r", mes['role'], mes['content'], tmp)
+				logging.debug("<- %r : %r ## %r", mes['role'], mes['content'], tmp)
 			else:
-				logging.info("<- %r : %r", mes['role'], mes['content'])
+				logging.debug("<- %r : %r", mes['role'], mes['content'])
 		stream = await self._client.chat.completions.create(
 			messages=messages,
 			stream=True,
@@ -183,13 +183,12 @@ class OpenAIAgent(Agent):
 		history = self._histories.setdefault(session_id, [])
  
 		user_text = "".join(extract_text(block) for block in prompt)
-		logging.info("prompt[%s] <- %r", session_id, user_text)
+		logging.info("prompt[%s]", session_id)
 		history.append({"role": "user", "content": user_text})
  
 		try:
 			reply = await self._stream_reply(session_id, history)
 			history.append({"role": "assistant", "content": reply})
-			logging.info("prompt[%s] -> %r", session_id, reply)
  
 			return PromptResponse(stop_reason="end_turn")
 		except Exception:
@@ -237,7 +236,7 @@ class OpenAIAgent(Agent):
  
 		try:
 			reply = await self._stream_reply(session_id, messages, **create_kwargs)
-			logging.info("reset_and_prompt[%s] -> %r", session_id, reply)
+			#logging.info("reset_and_prompt[%s] -> %r", session_id, reply)
 			return {"stopReason": "end_turn"}
 		except Exception:
 			logging.exception("reset_and_prompt[%s] failed", session_id)

@@ -4,7 +4,7 @@ coding of coding agent
 ## архитектура
 - тулы: запускаем mcp-сервера в контейнере и коннектимся к ним
 - агент - крутится на хосте
-- UI - obsidian коннектится к агенту по acp
+- UI - obsidian коннектится к агенту по модифицированному acp
 ## файлы
 
 - secret_keys.json - ключи от провайдеров
@@ -17,6 +17,11 @@ coding of coding agent
 - mcp1.py - пример подключения к mcp-серверу
 - chat_mcp.py - чат с инструментами
 
+- acp1.py - простой acp агент (backend для obsidian)
+- acp_mcp.py - acp агент c доступом к mcp и простым agent loop
+в acp добавлен кастомный метод `_mychat/session/reset_and_prompt` - получает весь чат и отправляет его в LLM, после чего стримит ответ как обычный метод `session/prompt`
+
+- .obsidian/plugins/mychat/* - плагин obsidian, концепция которого описана ниже
 ## подключение mcp
 
 тестирование через stdin

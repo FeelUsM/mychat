@@ -4,7 +4,7 @@ const { DEFAULT_SETTINGS, getAgentConfig, AcpDialogueSettingTab } = require("./s
 const { ensureNoteAcpConfig } = require("./note-config.js")
 const { AgentProcess } = require("./acp/process.js")
 const { AcpClient } = require("./acp/client.js")
-const { DialogueStreamWriter } = require("./writer.js")
+const { DialogueStreamWriter } = require("./acp/writer.js")
 //const { showPermissionModal } = require("./ui/modal-permission.js")
 
 class AcpDialoguePlugin extends Plugin {

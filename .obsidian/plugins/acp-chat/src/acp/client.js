@@ -77,6 +77,14 @@ class AcpClient {
 				sessionId,
 				messages,
 				params,
+				mcpServers:[
+					{
+						name:"claude_code",
+						type:"http",
+						url:"http://localhost:3003/mcp",
+						headers: [],
+					}
+				]
 			})
 		} finally {
 			this.currentOnUpdate = null

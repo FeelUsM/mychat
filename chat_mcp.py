@@ -19,13 +19,20 @@ from openai import OpenAI
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client
 
-from providers import get_provider_by_name
-
 # ---------------------------------------------------------------------------
 # Конфигурация
 # ---------------------------------------------------------------------------
 
-provider_name = "cerebras"
+from providers import get_provider_by_name
+provider_name = "openrouter"
+#provider_name = "github"
+#provider_name = "naga"
+#provider_name = "freemodel"
+#provider_name = "mistral"
+#provider_name = "aihubmix" # не заработал
+#provider_name = "pateway"
+#provider_name = "groq"
+#provider_name = "cerebras"
 BASE_URL, API_KEY, MODEL = get_provider_by_name(provider_name)
 print("---", provider_name, "---")
 print("===", MODEL, "===")

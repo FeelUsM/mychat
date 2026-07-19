@@ -11,7 +11,7 @@
 // написанные строки на +2. Компромисс осознанный ради возможности писать
 // в файл по мере поступления текста.
 
-const { matchFenceMarker, matchHeading } = require("./markdown-scan.js")
+const { matchFenceMarker, matchHeading } = require("./../markdown-scan.js")
 
 function extractText(content) {
 	if (!content) {
@@ -84,7 +84,8 @@ class StreamingSection {
 			return line
 		}
 		if (this.shift === null) {
-			this.shift = heading.level === 1 ? 2 : 1
+			this.shift = heading.level === 1 ? 2 : heading.level === 2 ? 1 : 0
+			console.log("heading shift:",this.shift)
 		}
 		const newLevel = Math.min(heading.level + this.shift, 6)
 		return "#".repeat(newLevel) + " " + heading.text
