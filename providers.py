@@ -1,4 +1,4 @@
-import json
+import jsonc
 import re
 import os
 
@@ -41,7 +41,7 @@ def get_provider_by_name(name,model=None):
 
 	with open(os.path.dirname(os.path.abspath(__file__))+os.sep+'secret_keys.json', 'r') as jsonfile:
 		# Load the content into a Python object
-		api_keys = json.load(jsonfile)['providers']
+		api_keys = jsonc.load(jsonfile)['providers']
 		API_KEY = api_keys[name]
 
 	return BASE_URL, API_KEY, MODEL

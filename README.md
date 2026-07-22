@@ -22,6 +22,12 @@ coding of coding agent
 в acp добавлен кастомный метод `_mychat/session/reset_and_prompt` - получает весь чат и отправляет его в LLM, после чего стримит ответ как обычный метод `session/prompt`
 
 - .obsidian/plugins/mychat/* - плагин obsidian, концепция которого описана ниже
+
+```bash
+docker run -it ffs-build:3
+docker run --rm -itv /home/feelus/tmp/mychat/models:/home/ubuntu -p 3001:3001 -p 3002:3002 -p 3003:3003 -p 3004:3004 -p 3005:3005 -u 1000 ffs-build:3
+docker run --rm -itv /home/feelus/tmp/mychat/models:/home/ubuntu -v /home/feelus/tmp/mychat/secret.d:/home/secretsvc -p 3001:3001 -p 3002:3002 -p 3003:3003 -p 3004:3004 -p 3005:3005 -u 1000 ffs-build:secret
+```
 ## подключение mcp
 
 тестирование через stdin
@@ -65,6 +71,14 @@ claude mcp serve
 npx -y supergateway \
   --stdio "claude mcp serve" \
   --outputTransport streamableHttp --port 3003 >mcp-claude.log 2>&1 &
+```
+- duckduckgo
+```bash
+uvx duckduckgo-mcp-server
+
+npx -y supergateway \
+  --stdio "uvx duckduckgo-mcp-server" \
+  --outputTransport streamableHttp --port 3004 >mcp-duckduckgo.log 2>&1 &
 ```
 ### прочие
 1. Filesystem

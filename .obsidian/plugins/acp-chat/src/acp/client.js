@@ -78,10 +78,16 @@ class AcpClient {
 				messages,
 				params,
 				mcpServers:[
-					{
+					/*{
 						name:"claude_code",
 						type:"http",
 						url:"http://localhost:3003/mcp",
+						headers: [],
+					}*/
+					{
+						name:"filesystem",
+						type:"http",
+						url:"http://localhost:3001/mcp",
 						headers: [],
 					}
 				]

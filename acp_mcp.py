@@ -72,7 +72,7 @@ BASE_URL, API_KEY, MODEL = get_provider_by_name(provider_name)
 logging.info("BASE_URL: %s", BASE_URL)
 logging.info("MODEL: %s", MODEL)
 
-MAX_AGENT_LOOP_ITERATIONS = 15
+MAX_AGENT_LOOP_ITERATIONS = 50
 
 
 def extract_text(block: Any) -> str:
